@@ -48,7 +48,7 @@
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
           <span class="android-title mdl-layout-title">
-            <img class="android-logo-image" src="{% static 'landingsite/images/logo_temp.png' %}">
+            <img class="android-logo-image" src="{% static 'landingsite/images/logo_jin_1.png' %}">
           </span>
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="android-header-spacer mdl-layout-spacer"></div>
@@ -80,14 +80,14 @@
             <li class="mdl-menu__item">Android History</li>
           </ul> -->
           <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="{% static 'landingsite/images/logo_temp.png' %}">
+            <img class="android-logo-image" src="{% static 'landingsite/images/logo_jin_1.png' %}">
           </span>
         </div>
       </div>
 
       <div class="android-drawer mdl-layout__drawer">
         <span class="mdl-layout-title">
-          <img class="android-logo-image" src="{% static 'landingsite/images/logo_temp.png' %}">
+          <img class="android-logo-image" src="{% static 'landingsite/images/logo_jin_1.png' %}">
         </span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="">Home</a>
@@ -108,7 +108,7 @@
           <div class="android-font android-slogan">print ("Hello World")</div>
           <div class="android-font android-sub-slogan">Welcome to Code for Everyone... be yourself. do your thing. see what's going on.</div>
           <div class="android-font android-create-character">
-            <a href=""><img src="images/andy.png"> create your website</a>
+            <a href=""><img src="{% static 'landingsite/images/andy.png' %}"> create your first website</a>
           </div>
 
           <a href="#screens">
@@ -121,21 +121,36 @@
           <div class="android-customized-section-text">
             <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Teach programming openly and freely with biweekly meetups</div>
             <p class="mdl-typography--font-light">
-                Workshops/hackathons and Work for nonprofit
+
               <br>
               <a href="" class="android-link mdl-typography--font-light"></a>
             </p>
           </div>
-          <div class="android-customized-section-image" style="background: url( {% static 'landingsite/images/slide03.jpg' %}) center top no-repeat;"></div>
+          <div id="screens" class="android-customized-section-image" style="background: url( {% static 'landingsite/images/slide03.jpg' %}) center top no-repeat;"></div>
+        </div>
+        <div class="android-wear-section" style="background: url( {% static 'landingsite/images/code.jpg' %}) center top no-repeat;">
+          <div class="android-wear-band">
+            <div class="android-wear-band-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">  Workshops/hackathons</div>
+              <p class="mdl-typography--headline mdl-typography--font-thin">
+                Work for nonprofit
+              </p>
+              <p>
+                <!-- <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href=""> -->
+                  <!-- See what's new in the Play Store&nbsp;<i class="material-icons">chevron_right</i> -->
+                <!-- </a> -->
+              </p>
+            </div>
+          </div>
         </div>
         <footer class="android-footer mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
             <div class="mdl-mega-footer--left-section">
-              <button class="mdl-mega-footer--social-btn"></button>
+              <!-- <button class="mdl-mega-footer--social-btn"><i class="material-icons">website</i></button>
               &nbsp;
               <button class="mdl-mega-footer--social-btn"></button>
               &nbsp;
-              <button class="mdl-mega-footer--social-btn"></button>
+              <button class="mdl-mega-footer--social-btn"></button> -->
             </div>
             <div class="mdl-mega-footer--right-section">
               <a class="mdl-typography--font-light" href="#top">

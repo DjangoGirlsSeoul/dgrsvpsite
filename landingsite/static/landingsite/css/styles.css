@@ -69,8 +69,8 @@ a img{
 
 
 .android-logo-image {
-  height: 28px;
-  width: 140px;
+  height: 51px;
+  width: 220px;
 }
 
 
@@ -169,18 +169,19 @@ a img{
   }
 
   .android-drawer span.mdl-navigation__link.mdl-navigation__link {
-    color: #8bc34a;
+    color: #FF4081;
   }
 
   .android-drawer .mdl-layout-title {
     position: relative;
-    background: #6ab344;
+    background: #3F51B5;
     height: 160px;
   }
 
     .android-drawer .android-logo-image {
       position: absolute;
       bottom: 16px;
+      left: 10px;
     }
 
 .android-be-together-section {
