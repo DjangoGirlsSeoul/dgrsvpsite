@@ -5,7 +5,7 @@ from django.template import RequestContext, loader
 from .models import Hack
 
 def index(request):
-	posts = Hack.objects.order_by('-createdAt')
+	hacks = Hack.objects.order_by('-createdAt')
 
 	context = {'hacks': hacks}
 	return render(request,'hacks/hacks_home.html', context)
