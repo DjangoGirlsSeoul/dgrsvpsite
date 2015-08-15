@@ -22,6 +22,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^hacks/', include('hacks.urls', namespace="hacks")),
     url(r'^contact-us/',TemplateView.as_view(template_name='landingsite/contact_us.html'),name='contact-us'),
     url(r'^$', include('landingsite.urls', namespace="landingsite")),
 ]
