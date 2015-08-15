@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.staticfiles.urls import static
 from django.conf import settings
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^contact-us/',TemplateView.as_view(template_name='landingsite/contact_us.html'),name='contact-us'),
     url(r'^$', include('landingsite.urls', namespace="landingsite")),
 ]
 urlpatterns += staticfiles_urlpatterns()
