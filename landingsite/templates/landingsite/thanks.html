@@ -105,61 +105,12 @@
         <a name="top"></a>
         <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/slide01.jpg' %})
         center 30% no-repeat;height:330px;">
-          <div class="android-font android-slogan">Get in touch</div>
-          <div class="android-font android-sub-slogan"></div>
+          <div class="android-font android-slogan">Thanks for getting in touch</div>
+          <div class="android-font android-sub-slogan">We will get back to you shortly</div>
           <div class="android-font android-create-character">
             <a href=""><img src="{% static 'landingsite/images/andy.png' %}" style="color:#ffffff;"></a>
           </div>
-
-          <a href="#name">
-            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-              <i class="material-icons">expand_more</i>
-            </button>
-          </a>
-        </div><br><br>
-        <form action="{% url 'landingsite:index' %}" method="post" >
-          {% csrf_token %}
-        <div class="mdl-grid">
-
-          <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet mdl-cell--2-col-phone">
-          </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="full_name" name="full_name" />
-              <label class="mdl-textfield__label" for="full_name">Name</label>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="email" name="email"/>
-            <label class="mdl-textfield__label" for="email">Email Address</label>
-          </div>
         </div>
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" id="message" name="message" />
-          <label class="mdl-textfield__label" for="message">Message</label>
-        </div>
-      </div>
-      </div>
-      <!-- <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-        </div>
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-          <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="messagetext" name"messagetext" ></input>
-              <label class="mdl-textfield__label" for="messagetext">Message</label>
-            </div>
-          </div> <br>
-        </div> -->
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--1-col mdl-cell--5-col-tablet mdl-cell--5-col-phone">
-          </div>
-        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-          Send
-        </button>
-      </div>
-      </form>
 
         <footer class="android-footer mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
@@ -171,10 +122,6 @@
               <button class="mdl-mega-footer--social-btn"></button> -->
             </div>
             <div class="mdl-mega-footer--right-section">
-              <a class="mdl-typography--font-light" href="#top">
-                Back to Top
-                <i class="material-icons">expand_less</i>
-              </a>
             </div>
           </div>
 
