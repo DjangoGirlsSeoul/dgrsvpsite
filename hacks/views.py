@@ -12,7 +12,6 @@ def index(request):
 
 # To be changed later
 def postSlug(request, slug):
-	posts = Hack.objects.order_by('-createdAt')
-
-	context = {'hacks': hacks}
-	return render(request,'hacks/hacks_home.html', context)
+	hack = get_object_or_404(Hack,slug=slug)
+	context = {'hack': hack}
+	return render(request,'hacks/entry.html', context)
