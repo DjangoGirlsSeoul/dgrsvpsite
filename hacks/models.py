@@ -34,7 +34,7 @@ class Hack(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
-        return super(Hack,self).save()
+        return super(Hack,self).save(*args, **kwargs)
