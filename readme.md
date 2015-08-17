@@ -8,7 +8,7 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 
 2. Go into the `codeforeveryone` directory `cd codeforeveryone`
 
-3. Create a virtualenv `venv codeforeveryone`
+3. Create a virtualenv `venv codeforeveryone` (you might have to run `pyvenv codeforeveryone` instead if `venv` does not work)
     - If you are on windows, you might have some problems. Refer to https://docs.python.org/3/library/venv.html for help
 
 4. Run `source bin/activate` to activate the virtualenv
