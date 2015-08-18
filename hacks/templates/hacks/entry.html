@@ -115,14 +115,16 @@
                   {{ hack.long_description|safe }}
               </p>
             </div>
-            <!-- Colored raised button -->
             <div class="mdl-grid">
+              {% if hack.github_link %}
               <a class="mdl-button mdl-js-button mdl-button--accent" href="{{ hack.github_link }}">
               GITHUB</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <!-- Accent-colored raised button -->
+              {% endif %}
+              {% if hack.ppt_link %}
               <a class="mdl-button mdl-js-button mdl-button--accent" href="{{ hack.ppt_link}}">
               Presentation
             </a>
+            {% endif %}
             </div>
             <!-- <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
               <form>
