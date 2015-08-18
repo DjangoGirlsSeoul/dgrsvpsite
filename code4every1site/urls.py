@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^contact/thanks/',TemplateView.as_view(template_name='landingsite/thanks.html'),name='thanks'),
     url(r'^contact-us/',TemplateView.as_view(template_name='landingsite/contact_us.html'),name='contact-us'),
     url(r'^$', include('landingsite.urls', namespace="landingsite")),
+    url(r'^about-us/',TemplateView.as_view(template_name='landingsite/about_us.html'),name='about-us'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
