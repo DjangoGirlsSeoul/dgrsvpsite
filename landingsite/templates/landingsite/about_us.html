@@ -23,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Code for everyone (formally MOOC Circle) site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Code for Everyone - Hacks</title>
+    <title>Code for Everyone</title>
 
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
@@ -66,7 +66,7 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Blog</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Weekly Meetings</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about_us/">About us</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/contact-us/">Contact us</a>
             </nav>
           </div>
@@ -92,7 +92,7 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="">Home</a>
           <a class="mdl-navigation__link" href="">Blog</a>
-          <a class="mdl-navigation__link" href="/about-us/">About us</a>
+          <a class="mdl-navigation__link" href="/about_us/">About us</a>
           <a class="mdl-navigation__link" href="/contact-us/">Contact us</a>
           <a class="mdl-navigation__link" href="">Join Slack</a>
           <div class="android-drawer-separator"></div>
@@ -103,70 +103,49 @@
 
       <div class="android-content mdl-layout__content">
         <a name="top"></a>
-        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
-        center 30% no-repeat;height:400px;">
-          <div class="android-font android-slogan">Seminars and Hacks</div>
-          <div class="android-font android-sub-slogan"></div>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/slide01.jpg' %})
+        center 30% no-repeat;height:330px;">
+          <div class="android-font android-slogan">Code for Everyone</div>
+          <div class="android-font android-sub-slogan">About us</div>
           <div class="android-font android-create-character">
             <a href=""><img src="{% static 'landingsite/images/andy.png' %}" style="color:#ffffff;"></a>
           </div>
-
-          <a href="#posts">
-            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-              <i class="material-icons">expand_more</i>
-            </button>
-          </a>
         </div>
-        <div class="android-more-section">
-          <div class="android-section-title mdl-typography--display-1-color-contrast">Check them out</div>
-          <div class="android-card-container mdl-grid" id="posts">
-            {% if hacks %}
-            {%  for hack in hacks %}
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                {% if hack.cover_photo %}
-                <img src="{{ hack.cover_photo.url }}">
-                {% endif %}
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">{{ hack.title }}</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">{{ hack.short_description|truncatechars:100 }}</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ hack.slug }}">
-                  Learn More
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
+        <div class="mdl-grid">
+          
+          <div class="mdl-cell mdl-cell--12-col">
+          </div>
+          <div class="mdl-cell mdl-cell--3-col">
+            <div>
+            <h5 class="center-align">About</h5>
+            <ul>
+              <li>Code for Everyone</li>
+              <li>Our team</li>
+              <li>Press</li>
+             </ul>
             </div>
-            {% endfor %}
-            {% else %}
-            <h2>No posts available</h2>
-            {% endif %}
-<!--
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Dumy Titl</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">Turn the little green Android mascot into you, your friends, anyone!</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
-                  Learn More
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div> -->
+          </div>
+          <div class="mdl-cell mdl-cell--8-col">
+            <div>
+            <h5 class="center-align">Code for Everyone</h5>
+            </div>
+            <p>Code for Everyone is a programming community whose members vary in programming knowledge and ability from absolute beginners to professional programmers, but all share a common interest: code. We are based in Seoul, South Korea but our community has no borders. Our goals are to: </p>
+              
+                <h5>Educate and Connect</h5>
+              
+              <p>We aim to educate and connect motivated members of the local community. Our philosophy is to learn by doing and master by teaching. This model of learning not only benefits and empowers the learner but also gives back to and helps build the community. We have regular biweekly meetups that include short lessons on a variety of IT topics and some time for self-study where members are always available to help get each-other unstuck.</p>
+                <h5>Inspire and Share</h5>
+                
+              <p>We believe in inspiring people with open education and sharing knowledge. Besides organizing the occasional event, workshop or hackathon we also like to collaborate with other organizations and share our experience by giving short presentations at other events.</p>
+
+              <h5>Help Non-profits</h5> 
+
+              <p>Learning by doing and giving back to the community are both pillars of our community. This is why we enjoy helping both local and global non-profits with their IT needs. These projects not only give members assisted practice with a concrete goal that can build their portfolio, but also help communities and organizations that need it most. </p> 
+
+              <p> If your non-profit organization is in need of our services please visit the <a href="/contact-us">Contact us</a> page.</p>
 
           </div>
-        </div>
-
+          </div>
         <footer class="android-footer mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
             <div class="mdl-mega-footer--left-section">
@@ -177,10 +156,6 @@
               <button class="mdl-mega-footer--social-btn"></button> -->
             </div>
             <div class="mdl-mega-footer--right-section">
-              <a class="mdl-typography--font-light" href="#top">
-                Back to Top
-                <i class="material-icons">expand_less</i>
-              </a>
             </div>
           </div>
 
@@ -196,7 +171,6 @@
         </footer>
       </div>
     </div>
-    <a href="https://github.com/MOOCCircle/codeforeveryone" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
 
 
