@@ -62,6 +62,13 @@
       z-index: 900;
     }
     </style>
+    <!-- Analytics -->
+    <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+    analytics.load("st84JOhemrqvWhw6f3XEsQ23wR1ORRcz");
+    analytics.page()
+    }}();
+  </script>
   </head>
   <body {% if hack.cover_photo %} style="background-image: url({% static 'landingsite/images/hack_bg.jpg' %})" {% endif %}>
   <div id="fb-root"></div>
@@ -207,10 +214,9 @@
           <div class="mdl-mini-footer--left-section">
             <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
             <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
           </div>
           <div class="mdl-mini-footer--right-section">
-            <button class="mdl-mini-footer--social-btn social-btn__share"><i class="material-icons">share</i></button>
+            <button class="mdl-mini-footer--social-btn social-btn__share" onclick="fbshare()"><i class="material-icons">share</i></button>
           </div>
         </footer>
       </main>
