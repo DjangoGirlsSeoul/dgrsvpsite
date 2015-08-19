@@ -41,6 +41,13 @@
       z-index: 900;
     }
     </style>
+    <!-- Analytics -->
+    <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+    analytics.load("st84JOhemrqvWhw6f3XEsQ23wR1ORRcz");
+    analytics.page()
+    }}();
+  </script>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -63,13 +70,15 @@
           <!-- Navigation -->
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Blog</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Weekly Meetings</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="#">Weekly Meetings</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/contact-us/">Contact us</a>
             </nav>
           </div>
+          <div class="mdl-tooltip mdl-tooltip--large" for="tt2">
+              Coming soon
+            </div>
           <!-- <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
             <i class="material-icons">more_vert</i>
           </button>
@@ -90,14 +99,15 @@
           <img class="android-logo-image" src="{% static 'landingsite/images/logo_jin_1.png' %}">
         </span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Home</a>
-          <a class="mdl-navigation__link" href="">Blog</a>
-          <a class="mdl-navigation__link" href="/about-us/">About us</a>
-          <a class="mdl-navigation__link" href="/contact-us/">Contact us</a>
-          <a class="mdl-navigation__link" href="">Join Slack</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">Home</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="#">Weekly Meetings</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/contact-us/">Contact us</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://join.codeforeveryone.co">Join Slack</a>
           <div class="android-drawer-separator"></div>
-          <span class="mdl-navigation__link" href="">Events</span>
-          <a class="mdl-navigation__link" href="http://djangogirls.org/seoul">Django Girls Seoul</a>
+          <span class="mdl-navigation__link mdl-typography--text-uppercase" href="">Events</span>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://djangogirls.org/seoul">Django Girls Seoul</a>
         </nav>
       </div>
 
@@ -131,8 +141,8 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="android-link mdl-typography--font-light" href="">Blog</a>
-            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+            <a class="android-link mdl-typography--font-light" href="/hacks/">Hacks</a>
+            <a class="android-link mdl-typography--font-light" href="http://mooccircle.github.io">MOOC Circle</a>
           </div>
         </footer>
       </div>
