@@ -9,5 +9,4 @@ addons:
   ssh_known_hosts: ssh.pythonanywhere.com
 after_success:
   - git remote add deploy codeforeveryone@ssh.pythonanywhere.com:/home/codeforeveryone/bare-repos/site.git
-  - echo "test deploy"
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push deploy && echo "deployed!"
