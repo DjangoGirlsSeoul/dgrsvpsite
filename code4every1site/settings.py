@@ -59,7 +59,7 @@ ROOT_URLCONF = 'code4every1site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['code4every1site/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
