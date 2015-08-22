@@ -7,11 +7,11 @@ def index(request):
     if request.method == "POST":
         full_name = request.POST.get('full_name', '')
         message = request.POST.get('message', '')
-        print (message)
         from_email = request.POST.get('email', '')
         subject = 'Get in touch - Code For Everyone website'
         if subject and message and from_email and full_name:
             try:
+                message += "\n From: " + from_email
                 send_mail(subject, message, from_email, ['info@codeforeveryone.co'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
