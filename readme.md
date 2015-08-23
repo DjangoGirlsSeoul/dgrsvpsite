@@ -1,3 +1,7 @@
+Code For Everyone Seoul Website
+---
+[![Build Status](https://travis-ci.org/CodeforeveryoneSeoul/codeforeveryone.svg)](https://travis-ci.org/CodeforeveryoneSeoul/codeforeveryone)
+
 Setting up your local environment
 -----
 
@@ -98,3 +102,11 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 8. Success! (hopefully)
 
 * If you see anything wrong here, please make an issue or a pull request!
+
+
+
+---
+
+We are mostly following the standard [github flow](https://guides.github.com/introduction/flow/). Only difference is that we do not test our PRs in production, but that might change later.
+
+We also have an automatic deploy triggered by travis which puts our code up on python anywhere, which is where our app is hosted.
