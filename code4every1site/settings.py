@@ -102,7 +102,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Set git hash
-GIT_HASH = os.getenv('GIT_HASH')
+GIT_HASH = os.getenv('GIT_HASH', 'missing')
 
 
 # Static files (CSS, JavaScript, Images)
