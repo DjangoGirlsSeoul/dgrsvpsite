@@ -102,7 +102,10 @@ USE_L10N = True
 USE_TZ = True
 
 # Set git hash
-GIT_HASH = os.getenv('GIT_HASH', 'missing')
+try:
+    GIT_HASH = open(os.path.join(BASE_DIR, 'git_hash.txt')).read()
+except FileNotFoundError:
+    GIT_HASH = 'missing'
 
 
 # Static files (CSS, JavaScript, Images)
