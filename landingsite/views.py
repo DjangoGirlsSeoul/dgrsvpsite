@@ -19,7 +19,7 @@ def contact(request):
                 send_mail(subject, message, from_email, ['info@codeforeveryone.co'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return HttpResponseRedirect('contact/thanks/')
+            return HttpResponseRedirect('contact-us/thanks/')
         else:
             return HttpResponseRedirect('contact-us/')
     else:
