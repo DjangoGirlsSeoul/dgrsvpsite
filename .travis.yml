@@ -7,6 +7,7 @@ addons:
   ssh_known_hosts: ssh.pythonanywhere.com
 after_success:
 - chmod 600 deploy_key
+- eval "$(ssh-agent -s)"
 - ssh_add deploy_key
 - git remote add deploy codeforeveryone@ssh.pythonanywhere.com:/home/codeforeveryone/bare-repos/site.git
 - git push deploy && echo "deployed!"
