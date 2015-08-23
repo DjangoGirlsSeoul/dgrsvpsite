@@ -102,7 +102,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Set git hash
-GIT_HASH = subprocess.check_output(['git','rev-parse','--short', 'HEAD'])
+GIT_HASH = os.getenv('GIT_HASH')
 
 
 # Static files (CSS, JavaScript, Images)
