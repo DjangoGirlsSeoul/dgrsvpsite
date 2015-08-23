@@ -9,6 +9,7 @@ after_success:
 - chmod 600 deploy_key
 - eval "$(ssh-agent -s)"
 - ssh-add deploy_key
+- git config --global push.default simple
 - git remote add deploy codeforeveryone@ssh.pythonanywhere.com:/home/codeforeveryone/bare-repos/site.git
 - git push deploy && echo "deployed!"
 before_install:
