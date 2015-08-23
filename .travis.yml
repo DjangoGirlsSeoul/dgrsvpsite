@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.4"
+# command to install dependencies
+install: "pip install -r requirements.txt"
+# command to run tests
+script: "python manage.py test"
+addons:
+  ssh_known_hosts: ssh.pythonanywhere.com
+after_success:
+  - git remote add deploy codeforeveryone@ssh.pythonanywhere.com:/home/codeforeveryone/bare-repos/site.git
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push deploy && echo "deployed!"
