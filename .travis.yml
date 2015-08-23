@@ -7,10 +7,11 @@ addons:
   ssh_known_hosts: ssh.pythonanywhere.com
 after_success:
 - chmod 600 deploy_key
-- ssh_add deploy_key
+- eval "$(ssh-agent -s)"
+- ssh-add deploy_key
+- git config --global push.default simple
 - git remote add deploy codeforeveryone@ssh.pythonanywhere.com:/home/codeforeveryone/bare-repos/site.git
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push
-  deploy && echo "deployed!"
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push deploy HEAD:master && echo "deployed!"
 before_install:
 - openssl aes-256-cbc -K $encrypted_0d858aabfd50_key -iv $encrypted_0d858aabfd50_iv
   -in deploy_key.enc -out deploy_key -d

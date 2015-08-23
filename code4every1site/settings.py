@@ -60,7 +60,7 @@ ROOT_URLCONF = 'code4every1site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['code4every1site/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'code4every1site/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,7 +102,10 @@ USE_L10N = True
 USE_TZ = True
 
 # Set git hash
-GIT_HASH = subprocess.check_output(['git','rev-parse','--short', 'HEAD'])
+try:
+    GIT_HASH = open(os.path.join(BASE_DIR, 'git_hash.txt')).read()
+except FileNotFoundError:
+    GIT_HASH = 'missing'
 
 
 # Static files (CSS, JavaScript, Images)
