@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import subprocess
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'code4every1site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['code4every1site/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'code4every1site.context_processors.global_settings',
             ],
         },
     },
@@ -98,6 +100,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Set git hash
+GIT_HASH = subprocess.check_output(['git','rev-parse','--short', 'HEAD'])
 
 
 # Static files (CSS, JavaScript, Images)
