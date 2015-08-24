@@ -8,9 +8,6 @@
         center 30% no-repeat;height:400px;">
           <div class="android-font android-slogan">Seminars and Hacks</div>
           <div class="android-font android-sub-slogan"></div>
-          <div class="android-font android-create-character">
-            <a href=""><img src="{% static 'landingsite/images/andy.png' %}" style="color:#ffffff;"></a>
-          </div>
 
           <a href="#posts">
             <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
@@ -22,48 +19,30 @@
           <div class="android-section-title mdl-typography--display-1-color-contrast">Check them out</div>
           <div class="android-card-container mdl-grid" id="posts">
             {% if hacks %}
-            {%  for hack in hacks %}
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                {% if hack.cover_photo %}
-                <img src="{{ hack.cover_photo.url }}">
-                {% endif %}
+              {% for hack in hacks %}
+              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                <div class="mdl-card__media">
+                  {% if hack.cover_photo %}
+                  <img src="{{ hack.cover_photo.url }}">
+                  {% endif %}
+                </div>
+                <div class="mdl-card__title">
+                   <h4 class="mdl-card__title-text">{{ hack.title }}</h4>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <span class="mdl-typography--font-light mdl-typography--subhead">{{ hack.short_description|truncatechars:100 }}</span>
+                </div>
+                <div class="mdl-card__actions">
+                   <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ hack.slug }}">
+                    Learn More
+                     <i class="material-icons">chevron_right</i>
+                   </a>
+                </div>
               </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">{{ hack.title }}</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">{{ hack.short_description|truncatechars:100 }}</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ hack.slug }}">
-                  Learn More
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-            {% endfor %}
+              {% endfor %}
             {% else %}
             <h2>No posts available</h2>
             {% endif %}
-<!--
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Dumy Titl</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">Turn the little green Android mascot into you, your friends, anyone!</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
-                  Learn More
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div> -->
 
           </div>
         </div>
