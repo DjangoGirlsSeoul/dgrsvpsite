@@ -21,12 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
-# TEMPLATE_DEBUG = DEBUG
 
 if DEBUG:
     SECRET_KEY = 'hello!world'
 else:
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = []
 
