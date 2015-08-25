@@ -19,27 +19,38 @@
           {% csrf_token %}
         <div class="mdl-grid">
 
-          <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet mdl-cell--2-col-phone">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone">
           </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--7-col-tablet mdl-cell--4-col-phone">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" id="full_name" name="full_name" required/>
               <label class="mdl-textfield__label" for="full_name">Name</label>
             </div>
           </div>
-          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="email" name="email" required/>
-            <label class="mdl-textfield__label" for="email">Email Address</label>
+          <div class="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--2-col-phone">
+          </div>
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="email" id="email" name="email" required/>
+              <label class="mdl-textfield__label" for="email">Email Address</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone">
           </div>
         </div>
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" id="message" name="message" />
-          <label class="mdl-textfield__label" for="message">Message</label>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone">
+          </div>
+          <div class="mdl-cell mdl-cell--8-col mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" rows="2" id="message"></textarea>
+            <label class="mdl-textfield__label" for="message">Message</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--2-col-phone">
+          </div>
         </div>
-      </div>
-      </div>
+        
       <!-- <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
         </div>
@@ -51,6 +62,8 @@
           </div> <br>
         </div> -->
         <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--2-col-phone">
+          </div>
           <div class="mdl-cell mdl-cell--1-col mdl-cell--5-col-tablet mdl-cell--5-col-phone">
           </div>
         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
