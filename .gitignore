@@ -3,3 +3,4 @@ db.sqlite3
 uploads/
 __pycache__
 .DS_Store
+logs/
