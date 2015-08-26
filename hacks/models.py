@@ -25,7 +25,7 @@ class Hack(models.Model):
     github_link = models.URLField(max_length=250, blank=True)
     ppt_link = models.URLField(max_length=250, blank=True)
     slug = models.SlugField(max_length=100, unique=True)
-    cover_photo =  models.ImageField(upload_to='uploads',blank=True)
+    cover_photo =  models.ImageField(upload_to='uploads',blank=False)
     category  = models.ManyToManyField(Category)
     writer = models.ForeignKey(User)
     updatedAt =  models.DateTimeField(auto_now=True)
