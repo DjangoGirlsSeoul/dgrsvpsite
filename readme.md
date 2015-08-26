@@ -110,3 +110,5 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 We are mostly following the standard [github flow](https://guides.github.com/introduction/flow/). Only difference is that we do not test our PRs in production, but that might change later.
 
 We also have an automatic deploy triggered by travis which puts our code up on python anywhere, which is where our app is hosted.
+
+If you want to read more about how our releases work [here](releases.md)
