@@ -18,6 +18,11 @@ class Category(models.Model):
     def get_absolute_url(self):
         return "/categories/%s/" % self.slug
 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        return super(Category,self).save(*args, **kwargs)
+
 class Hack(models.Model):
     title  = models.CharField(max_length=200)
     short_description = models.CharField(max_length=400)

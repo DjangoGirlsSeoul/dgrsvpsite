@@ -3,10 +3,10 @@ from .models import Hack, Category
 from django.template.defaultfilters import slugify
 
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': (slugify('title'),)}
+    exclude = ('slug',)
 
 class HackAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': (slugify('title'),)}
+    exclude = ('slug',)
 
 admin.site.register(Hack,HackAdmin)
 admin.site.register(Category, CategoryAdmin)
