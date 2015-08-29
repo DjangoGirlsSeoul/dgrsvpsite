@@ -1,6 +1,7 @@
 from django.test import TestCase
 from hacks.models import Hack,Category
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 class HackTestCase(TestCase):
     def setUp(self):
@@ -26,3 +27,9 @@ class HackTestCase(TestCase):
         self.assertEqual(hack1.slug, 'title-lion')
         self.assertEqual(hack2.slug, 'title-cat')
         self.assertEqual(cat2.slug, 'test-lion')
+
+class HackViewTests(TestCase):
+    def test_hack_index_page(self):
+        response = self.client.get(reverse('hacks:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,'No posts available')
