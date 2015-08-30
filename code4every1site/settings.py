@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'landingsite',
     'hacks',
+    'accounts'
 )
 
 MIDDLEWARE_CLASSES = (
