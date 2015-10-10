@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import get_object_or_404,render
 from django.http import HttpResponse, Http404, JsonResponse
 from django.template import RequestContext, loader
@@ -8,9 +9,10 @@ from django.core import serializers
 from .models import Event, Reservation
 
 def events_list(request):
-    events = Event.objects.order_by('-date')
+    upcoming_events = Event.objects.filter(start_time__gte=datetime.datetime.now())
+    past_events = Event.objects.filter(start_time__lte=datetime.datetime.now())
 
-    context = {'events': events}
+    context = {'upcoming_events': upcoming_events, 'past_events': past_events}
     return render(request,'rsvp/events_list.html', context)
 
 @requires_csrf_token
