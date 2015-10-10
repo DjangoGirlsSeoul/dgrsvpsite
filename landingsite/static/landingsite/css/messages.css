@@ -1,0 +1,12 @@
+ul.messages {
+    background-color: #FF4081;
+    position: absolute;
+    z-index: 9999;
+    list-style-type: none;
+}
+
+li.message {
+    color: #fff;
+    text-align: center;
+    width: 100vw;
+}

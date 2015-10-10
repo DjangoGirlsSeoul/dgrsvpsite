@@ -29,7 +29,7 @@ else:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.codeforeveryone.co', 'codeforeveryone.co']
 
 # Application definition
 
@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'landingsite',
     'hacks',
-    'rsvp'
+    'rsvp',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,6 +109,37 @@ try:
     GIT_HASH = open(os.path.join(BASE_DIR, 'git_hash.txt')).read()
 except FileNotFoundError:
     GIT_HASH = 'missing'
+
+# logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)
