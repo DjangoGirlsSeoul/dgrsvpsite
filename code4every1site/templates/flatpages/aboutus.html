@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title_tag %}
+  <title>{{ flatpage.title }}</title>
+{% endblock title_tag %}
+
+{% block content %}
+<a name="top"></a>
+<div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/slide01.jpg' %})
+center 30% no-repeat;height:330px;">
+  <div class="android-font android-slogan">Code for Everyone</div>
+  <div class="android-font android-sub-slogan">About us</div>
+</div>
+{{ flatpage.content|safe }}
+{% endblock content %}

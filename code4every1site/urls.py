@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hacks/', include('hacks.urls', namespace="hacks")),
     url(r'^accounts/', include('accounts.urls', namespace="accounts")),
+    url(r'^about-us/', include('django.contrib.flatpages.urls')),
     url(r'^', include('landingsite.urls', namespace="landingsite")),
 ]
 

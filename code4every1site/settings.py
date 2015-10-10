@@ -43,7 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'landingsite',
     'hacks',
-    'accounts'
+    'accounts',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'code4every1site.urls'
@@ -102,6 +105,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+SITE_ID = 1
 
 # Set git hash
 try:
