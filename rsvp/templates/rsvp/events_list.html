@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+        center 30% no-repeat;height:400px;">
+          <div class="android-font android-slogan">Events</div>
+          <div class="android-font android-sub-slogan"></div>
+
+          <a href="#posts">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        <div class="android-more-section">
+          <div class="android-section-title mdl-typography--display-1-color-contrast">Check them out</div>
+          <div class="android-card-container mdl-grid" id="posts">
+            {% if events %}
+              {% for event in events %}
+              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                <div class="mdl-card__media">
+                  {% if hack.cover_photo %}
+                  <img src="{{ hack.cover_photo.url }}">
+                  {% endif %}
+                </div>
+                <div class="mdl-card__title">
+                   <h4 class="mdl-card__title-text">{{ event.title }}</h4>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <span class="mdl-typography--font-light mdl-typography--subhead">{{ event.notes|truncatechars:100 }}</span>
+                </div>
+                <div class="mdl-card__actions">
+                   <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ event.title }}">
+                    Learn More
+                     <i class="material-icons">chevron_right</i>
+                   </a>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+            <h2>No Events available</h2>
+            {% endif %}
+
+          </div>
+        </div>
+
+{% endblock content %}

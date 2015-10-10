@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h2>{{ event.title }}</h2>
+<p>{{ event.notes }}</p>
+
+{% if request.user %}
+  {% if not rsvp %}
+    <button class="rsvp-submit mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
+    notrsvp
+  {% elif rsvp and not rsvp.first.attending %}
+    <button class="rsvp-submit mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
+    notattending
+  {% elif rsvp and rsvp.first.attending %}
+    <button class="rsvp-submit mdl-button mdl-js-button mdl-button--raised" data-event-id="{{ event.id }}">Un-rsvp</button>
+    attending
+  {% endif %}
+{% endif %}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var csrftoken = $.cookie('csrftoken');
+    $(".rsvp-submit").on('click', function(){
+      $.post("{% url 'rsvp:event_signup' event.id %}").done(function(data){
+        console.log(['done', data]);
+      })
+    })
+  })
+
+</script>
+
+{% endblock content %}
+

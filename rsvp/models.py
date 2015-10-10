@@ -7,12 +7,12 @@ class Reservation(models.Model):
     notes =  models.TextField()
     event = models.ForeignKey("Event")
     user = models.ForeignKey(User)
-    attending = models.BooleanField()
+    attending = models.BooleanField(default=False)
     updatedAt =  models.DateTimeField(auto_now=True)
     createdAt =  models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return "{}-{}".format(self.user.username, self.event.title)
 
 class Event(models.Model):
     title  = models.CharField(max_length=200)
