@@ -19,21 +19,20 @@ def event_detail(request, slug):
     rsvp = []
     if request.user:
         rsvp = Reservation.objects.filter(event=event, user=request.user)
-    print(rsvp)
-    print(rsvp[0].attending)
-    context = {'event': event, 'rsvp': rsvp}
+    number_attending = Reservation.objects.filter(event=event, attending=True).count()
+    context = {'event': event, 'rsvp': rsvp, 'number_attending': number_attending, 'spaces_left': event.capacity - number_attending}
     return render(request,'rsvp/event_detail.html', context)
 
 @require_http_methods(["POST"])
 def event_signup(request, event_id):
     user = request.user
     event = get_object_or_404(Event, id=event_id)
-    rsvp = Reservation.objects.filter(event=event, user=user)
+    rsvp = Reservation.objects.get(event=event, user=user)
     if rsvp:
-        rsvp[0].attending = not rsvp[0].attending
-        rsvp[0].save()
+        rsvp.attending = not rsvp.attending
+        rsvp.save()
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
-    rsvp_json = serializers.serialize('json', rsvp)
+    rsvp_json = serializers.serialize('json', [rsvp])
     return HttpResponse(rsvp_json, content_type='application/json')

@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,12 +19,16 @@ class Reservation(models.Model):
 class Event(models.Model):
     title  = models.CharField(max_length=200)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
-    date = models.DateTimeField()
+    start_time = models.DateTimeField()
+    duration = models.DurationField(default=timedelta())
     location = models.TextField()
     capacity = models.IntegerField()
     notes =  models.TextField()
     updatedAt =  models.DateTimeField(auto_now=True)
     createdAt =  models.DateTimeField(auto_now_add=True)
+
+    def end_time(self):
+        return self.start_time + self.duration
 
     def __str__(self):
         return self.title
@@ -31,3 +37,4 @@ class Event(models.Model):
         if not self.id:
             self.slug = slugify(self.title)
         return super(Event, self).save(*args, **kwargs)
+
