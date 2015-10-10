@@ -44,6 +44,8 @@
         var spacesLeft = parseInt($('.spaces-left').text());
         $('.spaces-left').html($this.text() == 'RSVP' ? spacesLeft - 1: spacesLeft + 1);
         $this.html($this.text() == 'RSVP' ? 'un-RSVP' : 'RSVP');
+      }).fail(function(data){
+        alert('Something went wrong. Please try again later.');
       })   
       
     })
