@@ -17,5 +17,6 @@ class HackTestCase(TestCase):
         cat1 = hack1.category.all()[0]
         hack2 = Hack.objects.get(title="cat")
         self.assertEqual(hack1.title, 'lion')
+        self.assertEqual(hack1.cover_photo,'')
         self.assertEqual(cat1.title, "testcat")
         self.assertEqual(hack2.short_description, 'roar')
