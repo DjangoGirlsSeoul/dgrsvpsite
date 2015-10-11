@@ -1,5 +1,6 @@
 {% extends "base.html" %}
+{% load load_static %}
 
-{% block title_tag %}
-  <title>{{ flatpage.title }}</title>
-{% endblock title_tag %}
+{% block content %}
+{{ flatpage.content|load_static }}
+{% endblock content %}
