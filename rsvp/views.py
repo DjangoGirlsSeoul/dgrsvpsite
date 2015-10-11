@@ -29,12 +29,13 @@ def event_detail(request, slug):
 def event_signup(request, event_id):
     user = request.user
     event = get_object_or_404(Event, id=event_id)
-    rsvp = Reservation.objects.get(event=event, user=user)
+    rsvp = Reservation.objects.filter(event=event, user=user)
     if rsvp:
-        rsvp.attending = not rsvp.attending
-        rsvp.save()
+        rsvp.first.attending = not rsvp.first.attending
+        rsvp.first.save()
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
-    rsvp_json = serializers.serialize('json', [rsvp])
+        rsvp = [rsvp]
+    rsvp_json = serializers.serialize('json', rsvp)
     return HttpResponse(rsvp_json, content_type='application/json')
