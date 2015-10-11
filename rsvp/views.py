@@ -31,8 +31,8 @@ def event_signup(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     rsvp = Reservation.objects.filter(event=event, user=user)
     if rsvp:
-        rsvp.first.attending = not rsvp.first.attending
-        rsvp.first.save()
+        rsvp.first().attending = not rsvp.first().attending
+        rsvp.first().save()
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
