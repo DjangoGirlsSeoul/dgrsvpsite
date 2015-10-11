@@ -5,6 +5,7 @@ from django.template import RequestContext, loader
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import requires_csrf_token
 from django.core import serializers
+from django.core.exceptions import PermissionDenied
 
 from .models import Event, Reservation
 
@@ -28,6 +29,8 @@ def event_detail(request, slug):
 @require_http_methods(["POST"])
 def event_signup(request, event_id):
     user = request.user
+    if not user.is_authenticated():
+        raise PermissionDenied 
     event = get_object_or_404(Event, id=event_id)
     rsvp = Reservation.objects.filter(event=event, user=user)
     if rsvp:

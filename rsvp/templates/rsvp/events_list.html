@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_list.css'%}">
+{% endblock css %}
+
 {% block content %}
 
         <a name="top"></a>
@@ -20,18 +24,22 @@
           <div class="android-card-container mdl-grid" id="posts">
             {% if upcoming_events or past_events %}
               {% for event in upcoming_events %}
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-                <div class="mdl-card__title">
-                   <h4 class="mdl-card__title-text">{{ event.title }}</h4>
+              <div class="demo-card-event mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                <h4>
+                  {{ event.title }}
+                </h4>
+                <h5>
+                  {{ event.start_time.date }}<br>
+                  {{ event.start_time.time }} - {{ event.end_time.time }}
+                </h5>
                 </div>
-                <div class="mdl-card__supporting-text">
-                  <span class="mdl-typography--font-light mdl-typography--subhead">{{ event.notes|truncatechars:100 }}</span>
-                </div>
-                <div class="mdl-card__actions">
-                   <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ event.slug }}">
-                    Learn More
-                     <i class="material-icons">chevron_right</i>
-                   </a>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="{% url event %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    More Details
+                  </a>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">event</i>
                 </div>
               </div>
               {% endfor %}
@@ -39,18 +47,23 @@
               <div class="android-section-title mdl-typography--display-1-color-contrast">Past Events</div>
               <div class="android-card-container mdl-grid" id="posts">
               {% for event in past_events %}
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-                <div class="mdl-card__title">
-                   <h4 class="mdl-card__title-text">{{ event.title }}</h4>
+              <div class="demo-card-event mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h4>
+                    {{ event.title }}
+                  </h4>
+                  <br>
+                  <h5>
+                    {{ event.start_time.date }}<br>
+                    {{ event.start_time.time }} - {{ event.end_time.time }}
+                  </h5>
                 </div>
-                <div class="mdl-card__supporting-text">
-                  <span class="mdl-typography--font-light mdl-typography--subhead">{{ event.notes|truncatechars:100 }}</span>
-                </div>
-                <div class="mdl-card__actions">
-                   <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="{{ event.slug }}">
-                    Learn More
-                     <i class="material-icons">chevron_right</i>
-                   </a>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="{% url 'rsvp:event_detail' event.slug %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    More Details
+                  </a>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">event</i>
                 </div>
               </div>
               {% endfor %}
