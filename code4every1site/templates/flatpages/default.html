@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load load_static %}
+
+{% block content %}
+{{ flatpage.content|load_static }}
+{% endblock content %}
