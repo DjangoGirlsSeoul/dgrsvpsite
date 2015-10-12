@@ -18,7 +18,7 @@
       <p>{{ event.start_time }} to {{ event.end_time }}</p>
       <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
     </div>
-    {% if request.user %}
+    {% if request.user.is_authenticated %}
       {% if not rsvp %}
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
       {% elif rsvp and not rsvp.first.attending %}

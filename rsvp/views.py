@@ -20,7 +20,7 @@ def events_list(request):
 def event_detail(request, slug):
     event = get_object_or_404(Event, slug=slug)
     rsvp = []
-    if request.user:
+    if request.user.is_authenticated():
         rsvp = Reservation.objects.filter(event=event, user=request.user)
     number_attending = Reservation.objects.filter(event=event, attending=True).count()
     context = {'event': event, 'rsvp': rsvp, 'number_attending': number_attending, 'spaces_left': event.capacity - number_attending}
