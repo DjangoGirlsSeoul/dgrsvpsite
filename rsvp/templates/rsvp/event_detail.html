@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_detail.css'%}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="mdl-grid">
+
+  <div class="mdl-cell mdl-cell--2-col">
+  </div>  
+  <div class="mdl-cell mdl-cell--8-col">
+    <div class="center-align">
+      <h2>{{ event.title }}</h2>
+      <p>{{ event.notes }}</p>
+      <p>{{ event.start_time }} to {{ event.end_time }}</p>
+      <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
+    </div>
+    {% if request.user.is_authenticated %}
+      {% if not rsvp %}
+        <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
+      {% elif rsvp and not rsvp.first.attending %}
+        <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
+      {% elif rsvp and rsvp.first.attending %}
+        <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised" data-event-id="{{ event.id }}">Un-rsvp<img class='loading hidden' src="{% static 'rsvp/loading.gif' %}" alt=""></button>
+      {% endif %}
+    {% endif %}
+
+  </div>
+  </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".rsvp-submit").on('click', function(){
+      var $this = $(this);
+      $this.prop("disabled", true)
+      $.post("{% url 'rsvp:event_signup' event.id %}").done(function(data){
+        $this.prop("disabled", false)
+        console.log(['done', data]);
+        $this.toggleClass('mdl-button--colored');
+        var spacesLeft = parseInt($('.spaces-left').text());
+        $('.spaces-left').html($this.text() == 'RSVP' ? spacesLeft - 1: spacesLeft + 1);
+        $this.html($this.text() == 'RSVP' ? 'un-RSVP' : 'RSVP');
+      }).fail(function(data){
+        alert('Something went wrong. Please try again later.');
+      })   
+      
+    })
+  })
+
+</script>
+
+{% endblock content %}
+

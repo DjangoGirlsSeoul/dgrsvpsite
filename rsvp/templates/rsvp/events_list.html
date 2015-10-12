@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_list.css'%}">
+{% endblock css %}
+
+{% block content %}
+
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+        center 30% no-repeat;height:400px;">
+          <div class="android-font android-slogan">Events</div>
+          <div class="android-font android-sub-slogan"></div>
+
+          <a href="#posts">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        <div class="android-more-section">
+          <div class="android-section-title mdl-typography--display-1-color-contrast">Upcoming Events</div>
+          <div class="android-card-container mdl-grid" id="posts">
+            {% if upcoming_events or past_events %}
+              {% for event in upcoming_events %}
+              <div class="demo-card-event mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                <h4>
+                  {{ event.title }}
+                </h4>
+                <h5>
+                  {{ event.start_time.date }}<br>
+                  {{ event.start_time.time }} - {{ event.end_time.time }}
+                </h5>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="{% url 'rsvp:event_detail' event.slug %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    More Details
+                  </a>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">event</i>
+                </div>
+              </div>
+              {% endfor %}
+              </div>
+              <div class="android-section-title mdl-typography--display-1-color-contrast">Past Events</div>
+              <div class="android-card-container mdl-grid" id="posts">
+              {% for event in past_events %}
+              <div class="demo-card-event mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h4>
+                    {{ event.title }}
+                  </h4>
+                  <br>
+                  <h5>
+                    {{ event.start_time.date }}<br>
+                    {{ event.start_time.time }} - {{ event.end_time.time }}
+                  </h5>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="{% url 'rsvp:event_detail' event.slug %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    More Details
+                  </a>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">event</i>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+            <h2>No Events available</h2>
+            {% endif %}
+
+          </div>
+        </div>
+
+{% endblock content %}

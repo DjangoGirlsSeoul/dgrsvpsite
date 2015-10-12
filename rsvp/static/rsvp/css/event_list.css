@@ -1,0 +1,30 @@
+.demo-card-event.mdl-card {
+  width: 236px;
+  height: 256px;
+  background: #3E4EB8;
+  margin: 10px;
+}
+
+.demo-card-event.mdl-card:nth-child(2n){
+  background: rgba(88, 110, 255, 1);
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+  display: block;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
