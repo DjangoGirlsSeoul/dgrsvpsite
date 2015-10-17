@@ -72,18 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'code4every1site.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -137,6 +125,12 @@ LOGGING = {
 
 if DEBUG:
     SECRET_KEY = 'hello!world'
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 else:
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     SECURE_SSL_REDIRECT = True
