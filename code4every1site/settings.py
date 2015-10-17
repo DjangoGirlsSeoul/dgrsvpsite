@@ -148,7 +148,7 @@ else:
             'USER': 'codeforeveryone',
             'PASSWORD': os.getenv(),
             'HOST': 'codeforeveryone.mysql.pythonanywhere-services.com',
-        }
+        },
         'test': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'codeforeveryone$test_codeforeveryone',
