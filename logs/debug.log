@@ -1,0 +1,770 @@
+[17/Oct/2015 18:09:55] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:09:55] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:09:55] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); (params None)
+[17/Oct/2015 18:09:55] DEBUG [django.db.backends:89] (0.037) QUERY = 'CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:09:55] DEBUG [django.db.backends:89] (0.005) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+[17/Oct/2015 18:10:50] DEBUG [django.db.backends:89] (0.005) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:10:50.675261', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:10:50.675261', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:10:50] ERROR [django.request:256] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 176, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\Desktop\coding stuff\codeforeveryone\landingsite\views.py", line 8, in index
+    return render(request,'landingsite/index.html', context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    match = condition.eval(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 937, in eval
+    return self.value.resolve(context, ignore_failures=True)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 647, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 787, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 817, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 226, in inner
+    self._setup()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 359, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 22, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 10, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 167, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 48, in __getitem__
+    return self._session[key]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 181, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\db.py", line 21, in load
+    expire_date__gt=timezone.now()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 328, in get
+    num = len(clone)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 144, in __len__
+    self._fetch_all()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\sql\compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+[17/Oct/2015 18:10:51] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:10:51.280295', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:10:51.280295', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:11:24] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:11:24.254829', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:11:24.254829', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:11:24] ERROR [django.request:256] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 176, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\Desktop\coding stuff\codeforeveryone\landingsite\views.py", line 8, in index
+    return render(request,'landingsite/index.html', context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    match = condition.eval(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 937, in eval
+    return self.value.resolve(context, ignore_failures=True)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 647, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 787, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 817, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 226, in inner
+    self._setup()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 359, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 22, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 10, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 167, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 48, in __getitem__
+    return self._session[key]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 181, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\db.py", line 21, in load
+    expire_date__gt=timezone.now()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 328, in get
+    num = len(clone)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 144, in __len__
+    self._fetch_all()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\sql\compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+[17/Oct/2015 18:11:24] DEBUG [django.db.backends:89] (0.015) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:11:24.854862', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:11:24.854862', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:11:36] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:11:36.230502', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:11:36.230502', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:11:36] ERROR [django.request:256] Internal Server Error: /rsvp/
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 176, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\Desktop\coding stuff\codeforeveryone\rsvp\views.py", line 17, in events_list
+    return render(request,'rsvp/events_list.html', context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    match = condition.eval(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\defaulttags.py", line 937, in eval
+    return self.value.resolve(context, ignore_failures=True)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 647, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 787, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\template\base.py", line 817, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 226, in inner
+    self._setup()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\functional.py", line 359, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 22, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\middleware.py", line 10, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 167, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\auth\__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 48, in __getitem__
+    return self._session[key]
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\base.py", line 181, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\contrib\sessions\backends\db.py", line 21, in load
+    expire_date__gt=timezone.now()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 328, in get
+    num = len(clone)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 144, in __len__
+    self._fetch_all()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\models\sql\compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\utils\six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\Desktop\coding stuff\myvenv\lib\site-packages\django\db\backends\sqlite3\base.py", line 318, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+[17/Oct/2015 18:11:36] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:11:36.762537', 'zffle61npepm6zq9y7u2zabez1b81q5a'); args=('2015-10-17 09:11:36.762537', 'zffle61npepm6zq9y7u2zabez1b81q5a')
+[17/Oct/2015 18:13:06] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:06] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+[17/Oct/2015 18:13:06] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:06] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:06] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:07] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:07] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] INSERT INTO "django_content_type__new" ("app_label", "name", "id", "model") SELECT "app_label", "name", "id", "model" FROM "django_content_type"; (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type__new" ("app_label", "name", "id", "model") SELECT "app_label", "name", "id", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] DROP TABLE "django_content_type"; (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.015) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.003) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('contenttypes', '0001_initial', '2015-10-17 09:13:10.407714'); args=['contenttypes', '0001_initial', '2015-10-17 09:13:10.407714']
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, UNIQUE ("content_type_id", "codename")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.001) QUERY = 'CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, UNIQUE ("content_type_id", "codename"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.001) QUERY = 'CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("group_id", "permission_id")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.001) QUERY = 'CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("group_id", "permission_id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.001) QUERY = 'CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), UNIQUE ("user_id", "group_id")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.002) QUERY = 'CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), UNIQUE ("user_id", "group_id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("user_id", "permission_id")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("user_id", "permission_id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0001_initial', '2015-10-17 09:13:10.721084'); args=['auth', '0001_initial', '2015-10-17 09:13:10.721084']
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); (params [])
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.009) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('admin', '0001_initial', '2015-10-17 09:13:10.938100'); args=['admin', '0001_initial', '2015-10-17 09:13:10.938100']
+[17/Oct/2015 18:13:10] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL, UNIQUE ("app_label", "model")); (params None)
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] INSERT INTO "django_content_type__new" ("app_label", "name", "id", "model") SELECT "app_label", "name", "id", "model" FROM "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type__new" ("app_label", "name", "id", "model") SELECT "app_label", "name", "id", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] DROP TABLE "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.016) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model")); (params None)
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "django_content_type__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] INSERT INTO "django_content_type__new" ("app_label", "id", "model") SELECT "app_label", "id", "model" FROM "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type__new" ("app_label", "id", "model") SELECT "app_label", "id", "model" FROM "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] DROP TABLE "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "django_content_type__new" RENAME TO "django_content_type"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('contenttypes', '0002_remove_content_type_name', '2015-10-17 09:13:11.422989'); args=['contenttypes', '0002_remove_content_type_name', '2015-10-17 09:13:11.422989']
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_permission__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL, UNIQUE ("content_type_id", "codename")); (params None)
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "auth_permission__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL, UNIQUE ("content_type_id", "codename"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] INSERT INTO "auth_permission__new" ("codename", "name", "id", "content_type_id") SELECT "codename", "name", "id", "content_type_id" FROM "auth_permission"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission__new" ("codename", "name", "id", "content_type_id") SELECT "codename", "name", "id", "content_type_id" FROM "auth_permission"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] DROP TABLE "auth_permission"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "auth_permission"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] ALTER TABLE "auth_permission__new" RENAME TO "auth_permission"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "auth_permission__new" RENAME TO "auth_permission"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.010) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0002_alter_permission_name_max_length', '2015-10-17 09:13:11.668027'); args=['auth', '0002_alter_permission_name_max_length', '2015-10-17 09:13:11.668027']
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL); (params None)
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.009) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] DROP TABLE "auth_user"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends.schema:102] ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0003_alter_user_email_max_length', '2015-10-17 09:13:11.906254'); args=['auth', '0003_alter_user_email_max_length', '2015-10-17 09:13:11.906254']
+[17/Oct/2015 18:13:11] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(30) NOT NULL UNIQUE); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(30) NOT NULL UNIQUE)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] DROP TABLE "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0004_alter_user_username_opts', '2015-10-17 09:13:12.140630'); args=['auth', '0004_alter_user_username_opts', '2015-10-17 09:13:12.140630']
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "auth_user__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_user__new" ("last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined") SELECT "last_login", "username", "is_active", "email", "password", "first_name", "is_superuser", "id", "is_staff", "last_name", "date_joined" FROM "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] DROP TABLE "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] ALTER TABLE "auth_user__new" RENAME TO "auth_user"; (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "auth_user__new" RENAME TO "auth_user"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.006) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0005_alter_user_last_login_null', '2015-10-17 09:13:12.361600'); args=['auth', '0005_alter_user_last_login_null', '2015-10-17 09:13:12.361600']
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.002) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('auth', '0006_require_contenttypes_0002', '2015-10-17 09:13:12.421601'); args=['auth', '0006_require_contenttypes_0002', '2015-10-17 09:13:12.421601']
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_site" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "domain" varchar(100) NOT NULL, "name" varchar(50) NOT NULL); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.006) QUERY = 'CREATE TABLE "django_site" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "domain" varchar(100) NOT NULL, "name" varchar(50) NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.004) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('sites', '0001_initial', '2015-10-17 09:13:12.533609'); args=['sites', '0001_initial', '2015-10-17 09:13:12.533609']
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_flatpage" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "url" varchar(100) NOT NULL, "title" varchar(200) NOT NULL, "content" text NOT NULL, "enable_comments" bool NOT NULL, "template_name" varchar(70) NOT NULL, "registration_required" bool NOT NULL); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "django_flatpage" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "url" varchar(100) NOT NULL, "title" varchar(200) NOT NULL, "content" text NOT NULL, "enable_comments" bool NOT NULL, "template_name" varchar(70) NOT NULL, "registration_required" bool NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_flatpage_sites" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "flatpage_id" integer NOT NULL REFERENCES "django_flatpage" ("id"), "site_id" integer NOT NULL REFERENCES "django_site" ("id"), UNIQUE ("flatpage_id", "site_id")); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "django_flatpage_sites" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "flatpage_id" integer NOT NULL REFERENCES "django_flatpage" ("id"), "site_id" integer NOT NULL REFERENCES "django_site" ("id"), UNIQUE ("flatpage_id", "site_id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_flatpage_572d4e42" ON "django_flatpage" ("url"); (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "django_flatpage_572d4e42" ON "django_flatpage" ("url")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_flatpage_sites_c3368d3a" ON "django_flatpage_sites" ("flatpage_id"); (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "django_flatpage_sites_c3368d3a" ON "django_flatpage_sites" ("flatpage_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_flatpage_sites_9365d6e7" ON "django_flatpage_sites" ("site_id"); (params [])
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "django_flatpage_sites_9365d6e7" ON "django_flatpage_sites" ("site_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('flatpages', '0001_initial', '2015-10-17 09:13:12.702081'); args=['flatpages', '0001_initial', '2015-10-17 09:13:12.702081']
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.016) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "hacks_category" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "slug" varchar(60) NOT NULL UNIQUE, "description" text NOT NULL); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "hacks_category" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "slug" varchar(60) NOT NULL UNIQUE, "description" text NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends.schema:102] CREATE TABLE "hacks_hack" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "short_description" varchar(400) NOT NULL, "long_description" text NOT NULL, "github_link" varchar(250) NOT NULL, "ppt_link" varchar(250) NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "cover_photo" varchar(100) NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "writer_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+[17/Oct/2015 18:13:12] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "hacks_hack" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "short_description" varchar(400) NOT NULL, "long_description" text NOT NULL, "github_link" varchar(250) NOT NULL, "ppt_link" varchar(250) NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "cover_photo" varchar(100) NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "writer_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE TABLE "hacks_hack_category" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "hack_id" integer NOT NULL REFERENCES "hacks_hack" ("id"), "category_id" integer NOT NULL REFERENCES "hacks_category" ("id"), UNIQUE ("hack_id", "category_id")); (params None)
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "hacks_hack_category" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "hack_id" integer NOT NULL REFERENCES "hacks_hack" ("id"), "category_id" integer NOT NULL REFERENCES "hacks_category" ("id"), UNIQUE ("hack_id", "category_id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "hacks_hack_226b640d" ON "hacks_hack" ("writer_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "hacks_hack_226b640d" ON "hacks_hack" ("writer_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "hacks_hack_category_9d18a6a2" ON "hacks_hack_category" ("hack_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "hacks_hack_category_9d18a6a2" ON "hacks_hack_category" ("hack_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "hacks_hack_category_b583a629" ON "hacks_hack_category" ("category_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "hacks_hack_category_b583a629" ON "hacks_hack_category" ("category_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('hacks', '0001_initial', '2015-10-17 09:13:13.061502'); args=['hacks', '0001_initial', '2015-10-17 09:13:13.061502']
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE TABLE "hacks_hack__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "short_description" varchar(400) NOT NULL, "long_description" text NOT NULL, "github_link" varchar(250) NOT NULL, "ppt_link" varchar(250) NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "writer_id" integer NOT NULL REFERENCES "auth_user" ("id"), "cover_photo" varchar(100) NOT NULL); (params None)
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "hacks_hack__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "short_description" varchar(400) NOT NULL, "long_description" text NOT NULL, "github_link" varchar(250) NOT NULL, "ppt_link" varchar(250) NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "writer_id" integer NOT NULL REFERENCES "auth_user" ("id"), "cover_photo" varchar(100) NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] INSERT INTO "hacks_hack__new" ("updatedAt", "long_description", "title", "github_link", "short_description", "slug", "id", "ppt_link", "cover_photo", "createdAt", "writer_id") SELECT "updatedAt", "long_description", "title", "github_link", "short_description", "slug", "id", "ppt_link", "cover_photo", "createdAt", "writer_id" FROM "hacks_hack"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "hacks_hack__new" ("updatedAt", "long_description", "title", "github_link", "short_description", "slug", "id", "ppt_link", "cover_photo", "createdAt", "writer_id") SELECT "updatedAt", "long_description", "title", "github_link", "short_description", "slug", "id", "ppt_link", "cover_photo", "createdAt", "writer_id" FROM "hacks_hack"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] DROP TABLE "hacks_hack"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "hacks_hack"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] ALTER TABLE "hacks_hack__new" RENAME TO "hacks_hack"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "hacks_hack__new" RENAME TO "hacks_hack"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "hacks_hack_226b640d" ON "hacks_hack" ("writer_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "hacks_hack_226b640d" ON "hacks_hack" ("writer_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.002) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.006) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('hacks', '0002_auto_20151010_1510', '2015-10-17 09:13:13.359461'); args=['hacks', '0002_auto_20151010_1510', '2015-10-17 09:13:13.359461']
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_event" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL); (params None)
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.006) QUERY = 'CREATE TABLE "rsvp_event" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_reservation" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "date" datetime NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "rsvp_reservation" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "date" datetime NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0001_initial', '2015-10-17 09:13:13.721061'); args=['rsvp', '0001_initial', '2015-10-17 09:13:13.721061']
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_reservation__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id")); (params None)
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "rsvp_reservation__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"))' - PARAMS = (); args=None
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_reservation__new" ("updatedAt", "event_id", "notes", "id", "user_id", "createdAt") SELECT "updatedAt", "event_id", "notes", "id", "user_id", "createdAt" FROM "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_reservation__new" ("updatedAt", "event_id", "notes", "id", "user_id", "createdAt") SELECT "updatedAt", "event_id", "notes", "id", "user_id", "createdAt" FROM "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_reservation__new" RENAME TO "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "rsvp_reservation__new" RENAME TO "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id"); (params [])
+[17/Oct/2015 18:13:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0002_remove_reservation_date', '2015-10-17 09:13:14.019989'); args=['rsvp', '0002_remove_reservation_date', '2015-10-17 09:13:14.019989']
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE); (params None)
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_event__new" ("title", "location", "capacity", "notes", "date", "slug", "id", "updatedAt", "createdAt") SELECT "title", "location", "capacity", "notes", "date", '', "id", "updatedAt", "createdAt" FROM "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_event__new" ("title", "location", "capacity", "notes", "date", "slug", "id", "updatedAt", "createdAt") SELECT "title", "location", "capacity", "notes", "date", \'\', "id", "updatedAt", "createdAt" FROM "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.013) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0003_event_slug', '2015-10-17 09:13:14.321204'); args=['rsvp', '0003_event_slug', '2015-10-17 09:13:14.321204']
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_reservation__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "attending" bool NOT NULL); (params None)
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "rsvp_reservation__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "event_id" integer NOT NULL REFERENCES "rsvp_event" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "attending" bool NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_reservation__new" ("updatedAt", "event_id", "notes", "id", "user_id", "attending", "createdAt") SELECT "updatedAt", "event_id", "notes", "id", "user_id", 0, "createdAt" FROM "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_reservation__new" ("updatedAt", "event_id", "notes", "id", "user_id", "attending", "createdAt") SELECT "updatedAt", "event_id", "notes", "id", "user_id", 0, "createdAt" FROM "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_reservation__new" RENAME TO "rsvp_reservation"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "rsvp_reservation__new" RENAME TO "rsvp_reservation"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id"); (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_4437cfac" ON "rsvp_reservation" ("event_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id"); (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE INDEX "rsvp_reservation_e8701ad4" ON "rsvp_reservation" ("user_id")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.002) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.006) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0004_reservation_attending', '2015-10-17 09:13:14.680349'); args=['rsvp', '0004_reservation_attending', '2015-10-17 09:13:14.680349']
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "datetime" datetime NOT NULL); (params None)
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "datetime" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_event__new" ("title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt") SELECT "title", "location", "date", "capacity", "notes", "slug", "id", "updatedAt", "createdAt" FROM "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_event__new" ("title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt") SELECT "title", "location", "date", "capacity", "notes", "slug", "id", "updatedAt", "createdAt" FROM "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"; (params [])
+[17/Oct/2015 18:13:14] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0005_auto_20151010_1722', '2015-10-17 09:13:15.017430'); args=['rsvp', '0005_auto_20151010_1722', '2015-10-17 09:13:15.017430']
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "datetime" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "duration" bigint NOT NULL); (params None)
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.016) QUERY = 'CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "datetime" datetime NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "duration" bigint NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_event__new" ("title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt", "duration") SELECT "title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt", 0.0 FROM "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_event__new" ("title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt", "duration") SELECT "title", "location", "datetime", "capacity", "notes", "slug", "id", "updatedAt", "createdAt", 0.0 FROM "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.016) QUERY = 'ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.003) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0006_event_duration', '2015-10-17 09:13:15.327231'); args=['rsvp', '0006_event_duration', '2015-10-17 09:13:15.327231']
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "duration" bigint NOT NULL, "start_time" datetime NOT NULL); (params None)
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'CREATE TABLE "rsvp_event__new" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "location" text NOT NULL, "capacity" integer NOT NULL, "notes" text NOT NULL, "updatedAt" datetime NOT NULL, "createdAt" datetime NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "duration" bigint NOT NULL, "start_time" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] INSERT INTO "rsvp_event__new" ("title", "location", "capacity", "notes", "start_time", "slug", "id", "updatedAt", "createdAt", "duration") SELECT "title", "location", "capacity", "notes", "datetime", "slug", "id", "updatedAt", "createdAt", "duration" FROM "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "rsvp_event__new" ("title", "location", "capacity", "notes", "start_time", "slug", "id", "updatedAt", "createdAt", "duration") SELECT "title", "location", "capacity", "notes", "datetime", "slug", "id", "updatedAt", "createdAt", "duration" FROM "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] DROP TABLE "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'DROP TABLE "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"; (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'ALTER TABLE "rsvp_event__new" RENAME TO "rsvp_event"' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('rsvp', '0007_auto_20151010_1731', '2015-10-17 09:13:15.640763'); args=['rsvp', '0007_auto_20151010_1731', '2015-10-17 09:13:15.640763']
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL); (params None)
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.007) QUERY = 'CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL)' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends.schema:102] CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); (params [])
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.001) QUERY = 'CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date")' - PARAMS = (); args=[]
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.003) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_migrations" ("app", "name", "applied") VALUES (%s, %s, %s)' - PARAMS = ('sessions', '0001_initial', '2015-10-17 09:13:15.762807'); args=['sessions', '0001_initial', '2015-10-17 09:13:15.762807']
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.002) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('admin', 'logentry'); args=('admin', 'logentry')
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('admin', 'logentry'); args=('admin', 'logentry')
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('admin', 'logentry'); args=['admin', 'logentry']
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:15] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry'); args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('admin',); args=('admin',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'permission'); args=('auth', 'permission')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'permission'); args=('auth', 'permission')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'permission'); args=['auth', 'permission']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'group'); args=('auth', 'group')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'group'); args=('auth', 'group')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'group'); args=['auth', 'group']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'user'); args=('auth', 'user')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('auth', 'user'); args=('auth', 'user')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('auth', 'user'); args=['auth', 'user']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s, %s, %s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (2, 3, 4); args=(2, 3, 4)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user'); args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('auth',); args=('auth',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('contenttypes', 'contenttype'); args=('contenttypes', 'contenttype')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('contenttypes', 'contenttype'); args=('contenttypes', 'contenttype')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('contenttypes', 'contenttype'); args=['contenttypes', 'contenttype']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (5,); args=(5,)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype'); args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('contenttypes',); args=('contenttypes',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sessions', 'session'); args=('sessions', 'session')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sessions', 'session'); args=('sessions', 'session')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('sessions', 'session'); args=['sessions', 'session']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (6,); args=(6,)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session'); args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('sessions',); args=('sessions',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('hacks', 'category'); args=('hacks', 'category')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('hacks', 'category'); args=('hacks', 'category')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('hacks', 'category'); args=['hacks', 'category']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('hacks', 'hack'); args=('hacks', 'hack')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('hacks', 'hack'); args=('hacks', 'hack')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('hacks', 'hack'); args=['hacks', 'hack']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s, %s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (8, 7); args=(8, 7)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.007) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add category', 7, 'add_category', 'Can change category', 7, 'change_category', 'Can delete category', 7, 'delete_category', 'Can add hack', 8, 'add_hack', 'Can change hack', 8, 'change_hack', 'Can delete hack', 8, 'delete_hack'); args=('Can add category', 7, 'add_category', 'Can change category', 7, 'change_category', 'Can delete category', 7, 'delete_category', 'Can add hack', 8, 'add_hack', 'Can change hack', 8, 'change_hack', 'Can delete hack', 8, 'delete_hack')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('hacks',); args=('hacks',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sites', 'site'); args=('sites', 'site')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('sites', 'site'); args=('sites', 'site')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('sites', 'site'); args=['sites', 'site']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (9,); args=(9,)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add site', 9, 'add_site', 'Can change site', 9, 'change_site', 'Can delete site', 9, 'delete_site'); args=('Can add site', 9, 'add_site', 'Can change site', 9, 'change_site', 'Can delete site', 9, 'delete_site')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('sites',); args=('sites',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT (1) AS "a" FROM "django_site" LIMIT 1' - PARAMS = (); args=()
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_site"."id", "django_site"."domain", "django_site"."name" FROM "django_site" WHERE "django_site"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'UPDATE "django_site" SET "domain" = %s, "name" = %s WHERE "django_site"."id" = %s' - PARAMS = ('example.com', 'example.com', 1); args=('example.com', 'example.com', 1)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_site" ("id", "domain", "name") SELECT %s AS "id", %s AS "domain", %s AS "name"' - PARAMS = (1, 'example.com', 'example.com'); args=(1, 'example.com', 'example.com')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('flatpages', 'flatpage'); args=('flatpages', 'flatpage')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('flatpages', 'flatpage'); args=('flatpages', 'flatpage')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('flatpages', 'flatpage'); args=['flatpages', 'flatpage']
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (10,); args=(10,)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add flat page', 10, 'add_flatpage', 'Can change flat page', 10, 'change_flatpage', 'Can delete flat page', 10, 'delete_flatpage'); args=('Can add flat page', 10, 'add_flatpage', 'Can change flat page', 10, 'change_flatpage', 'Can delete flat page', 10, 'delete_flatpage')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('flatpages',); args=('flatpages',)
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('rsvp', 'reservation'); args=('rsvp', 'reservation')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('rsvp', 'reservation'); args=('rsvp', 'reservation')
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:16] DEBUG [django.db.backends:89] (0.016) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('rsvp', 'reservation'); args=['rsvp', 'reservation']
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('rsvp', 'event'); args=('rsvp', 'event')
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('rsvp', 'event'); args=('rsvp', 'event')
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "django_content_type" ("app_label", "model") VALUES (%s, %s)' - PARAMS = ('rsvp', 'event'); args=['rsvp', 'event']
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ( "auth_permission"."content_type_id" = "django_content_type"."id" ) WHERE "auth_permission"."content_type_id" IN (%s, %s) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC' - PARAMS = (11, 12); args=(11, 12)
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT %s AS "name", %s AS "content_type_id", %s AS "codename" UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s UNION ALL SELECT %s, %s, %s' - PARAMS = ('Can add reservation', 11, 'add_reservation', 'Can change reservation', 11, 'change_reservation', 'Can delete reservation', 11, 'delete_reservation', 'Can add event', 12, 'add_event', 'Can change event', 12, 'change_event', 'Can delete event', 12, 'delete_event'); args=('Can add reservation', 11, 'add_reservation', 'Can change reservation', 11, 'change_reservation', 'Can delete reservation', 11, 'delete_reservation', 'Can add event', 12, 'add_event', 'Can change event', 12, 'change_event', 'Can delete event', 12, 'delete_event')
+[17/Oct/2015 18:13:17] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = %s' - PARAMS = ('rsvp',); args=('rsvp',)
+[17/Oct/2015 18:13:55] DEBUG [django.db.backends:89] (0.016) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:13:55] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+[17/Oct/2015 18:14:04] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('zffle61npepm6zq9y7u2zabez1b81q5a', '2015-10-17 09:14:04.247826'); args=('zffle61npepm6zq9y7u2zabez1b81q5a', '2015-10-17 09:14:04.247826')
+[17/Oct/2015 18:14:04] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."start_time" >= %s' - PARAMS = ('2015-10-17 09:14:04.039808',); args=('2015-10-17 09:14:04.039808',)
+[17/Oct/2015 18:14:04] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."start_time" <= %s' - PARAMS = ('2015-10-17 09:14:04.041808',); args=('2015-10-17 09:14:04.041808',)
+[17/Oct/2015 18:14:09] WARNING [django.request:170] Not Found: /rsvp/images/touch/chrome-touch-icon-192x192.png
+[17/Oct/2015 18:14:09] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_site"."id", "django_site"."domain", "django_site"."name" FROM "django_site" WHERE "django_site"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:14:09] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/images/touch/chrome-touch-icon-192x192.png', 1); args=('/rsvp/images/touch/chrome-touch-icon-192x192.png', 1)
+[17/Oct/2015 18:14:09] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/images/touch/chrome-touch-icon-192x192.png/', 1); args=('/rsvp/images/touch/chrome-touch-icon-192x192.png/', 1)
+[17/Oct/2015 18:15:08] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('user',); args=('user',)
+[17/Oct/2015 18:15:13] DEBUG [django.db.backends:89] (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('rachell',); args=('rachell',)
+[17/Oct/2015 18:15:51] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:15:51] DEBUG [django.db.backends:89] (0.000) QUERY = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)' - PARAMS = ('pbkdf2_sha256$20000$i1CTrO53Sema$+PeP1JlcLU7COS/8WKi0+LTi87TwR/og+KGnpsh/sdw=', None, True, 'rachell', '', '', 'rachell.calhoun@gmail.com', True, True, '2015-10-17 09:15:51.504795'); args=['pbkdf2_sha256$20000$i1CTrO53Sema$+PeP1JlcLU7COS/8WKi0+LTi87TwR/og+KGnpsh/sdw=', None, True, 'rachell', '', '', 'rachell.calhoun@gmail.com', True, True, '2015-10-17 09:15:51.504795']
+[17/Oct/2015 18:16:34] DEBUG [django.db.backends:89] (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+[17/Oct/2015 18:16:34] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+[17/Oct/2015 18:16:42] DEBUG [django.db.backends:89] (0.008) QUERY = 'SELECT "django_site"."id", "django_site"."domain", "django_site"."name" FROM "django_site" WHERE "django_site"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.011) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('rachell',); args=('rachell',)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = %s LIMIT 1' - PARAMS = ('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',); args=('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.006) QUERY = 'INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT %s AS "session_key", %s AS "session_data", %s AS "expire_date"' - PARAMS = ('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne', 'MGIwYjY5YjFlMDYwYmE0MjExNTY1N2ZiZDc2ZjViYmNjYmQ1ODBjZjp7fQ==', '2015-10-31 09:16:50.424348'); args=('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne', 'MGIwYjY5YjFlMDYwYmE0MjExNTY1N2ZiZDc2ZjViYmNjYmQ1ODBjZjp7fQ==', '2015-10-31 09:16:50.424348')
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = %s' - PARAMS = ('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',); args=('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.006) QUERY = 'DELETE FROM "django_session" WHERE "django_session"."session_key" IN (%s)' - PARAMS = ('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',); args=('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne',)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.006) QUERY = 'UPDATE "auth_user" SET "last_login" = %s WHERE "auth_user"."id" = %s' - PARAMS = ('2015-10-17 09:16:50.523355', 1); args=('2015-10-17 09:16:50.523355', 1)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.006) QUERY = 'UPDATE "django_session" SET "session_data" = %s, "expire_date" = %s WHERE "django_session"."session_key" = %s' - PARAMS = ('NzUzMTZhMzc0ZGNiMTU1ZTM1YTcwMGFhNzAwNDc0OGYzZjU1OWYxMjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2NDE4MTgxMDQxNWViNGE1NTk5N2M5MzEwMjE1NDI2MWQxNGI5ZjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-10-31 09:16:50.563355', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('NzUzMTZhMzc0ZGNiMTU1ZTM1YTcwMGFhNzAwNDc0OGYzZjU1OWYxMjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2NDE4MTgxMDQxNWViNGE1NTk5N2M5MzEwMjE1NDI2MWQxNGI5ZjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-10-31 09:16:50.563355', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.005) QUERY = 'INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT %s AS "session_key", %s AS "session_data", %s AS "expire_date"' - PARAMS = ('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne', 'NzUzMTZhMzc0ZGNiMTU1ZTM1YTcwMGFhNzAwNDc0OGYzZjU1OWYxMjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2NDE4MTgxMDQxNWViNGE1NTk5N2M5MzEwMjE1NDI2MWQxNGI5ZjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-10-31 09:16:50.563355'); args=('o1z6m37r9jj3ayfchchs2nr6xq2cj7ne', 'NzUzMTZhMzc0ZGNiMTU1ZTM1YTcwMGFhNzAwNDc0OGYzZjU1OWYxMjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2NDE4MTgxMDQxNWViNGE1NTk5N2M5MzEwMjE1NDI2MWQxNGI5ZjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-10-31 09:16:50.563355')
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:16:50.666362', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:16:50.666362', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:16:50] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ( "django_admin_log"."user_id" = "auth_user"."id" ) LEFT OUTER JOIN "django_content_type" ON ( "django_admin_log"."content_type_id" = "django_content_type"."id" ) WHERE "django_admin_log"."user_id" = %s ORDER BY "django_admin_log"."action_time" DESC LIMIT 10' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:16:58.046090', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:16:58.046090', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.005) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.006) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "rsvp_event"' - PARAMS = ('*',); args=('*',)
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" ORDER BY "rsvp_event"."id" DESC' - PARAMS = (); args=()
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:16:58.671130', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:16:58.671130', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:16:58] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:03] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:03.412725', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:03.412725', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:03] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:03] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:17:03] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = %s AND "django_content_type"."model" = %s)' - PARAMS = ('rsvp', 'event'); args=('rsvp', 'event')
+[17/Oct/2015 18:17:04] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:03.994758', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:03.994758', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:04] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:33] DEBUG [django.db.backends:89] (0.013) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:33.857006', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:33.857006', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:33] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:33] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:17:34] DEBUG [django.db.backends:89] (0.013) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:34.656711', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:34.656711', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:34] DEBUG [django.db.backends:89] (0.007) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:46.654064', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:46.654064', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.007) QUERY = 'INSERT INTO "rsvp_event" ("title", "slug", "start_time", "duration", "location", "capacity", "notes", "updatedAt", "createdAt") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)' - PARAMS = ('First event', 'first-event', '2015-10-17 09:17:16', 360000000.0, 'dunkin donuts', 6, 'hey guys', '2015-10-17 09:17:46.715068', '2015-10-17 09:17:46.715068'); args=['First event', 'first-event', '2015-10-17 09:17:16', 360000000.0, 'dunkin donuts', 6, 'hey guys', '2015-10-17 09:17:46.715068', '2015-10-17 09:17:46.715068']
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.001) QUERY = 'INSERT INTO "django_admin_log" ("action_time", "user_id", "content_type_id", "object_id", "object_repr", "action_flag", "change_message") VALUES (%s, %s, %s, %s, %s, %s, %s)' - PARAMS = ('2015-10-17 09:17:46.727068', 1, 12, '1', 'First event', 1, ''); args=['2015-10-17 09:17:46.727068', 1, 12, '1', 'First event', 1, '']
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:46.813073', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:46.813073', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "rsvp_event"' - PARAMS = ('*',); args=('*',)
+[17/Oct/2015 18:17:46] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" ORDER BY "rsvp_event"."id" DESC' - PARAMS = (); args=()
+[17/Oct/2015 18:17:47] DEBUG [django.db.backends:89] (0.011) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:47.400109', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:47.400109', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:47] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:53] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:17:53.119868', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:17:53.119868', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:17:53] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:17:53] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."start_time" >= %s' - PARAMS = ('2015-10-17 09:17:53.044865',); args=('2015-10-17 09:17:53.044865',)
+[17/Oct/2015 18:17:53] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."start_time" <= %s' - PARAMS = ('2015-10-17 09:17:53.046867',); args=('2015-10-17 09:17:53.046867',)
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."slug" = %s' - PARAMS = ('first-event',); args=('first-event',)
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:18:11.238127', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:18:11.238127', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."attending" = %s AND "rsvp_reservation"."event_id" = %s)' - PARAMS = ('*', True, 1); args=('*', True, 1)
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."event_id" = %s AND "rsvp_reservation"."user_id" = %s)' - PARAMS = (1, 1); args=(1, 1)
+[17/Oct/2015 18:18:11] DEBUG [django.db.backends:89] (0.007) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."attending" = %s AND "rsvp_reservation"."event_id" = %s)' - PARAMS = (True, 1); args=(True, 1)
+[17/Oct/2015 18:18:13] WARNING [django.request:170] Not Found: /rsvp/first-event/images/touch/chrome-touch-icon-192x192.png
+[17/Oct/2015 18:18:13] WARNING [django.request:170] Not Found: /rsvp/first-event/images/touch/chrome-touch-icon-192x192.png
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.020) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1)
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1)
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1)
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.006) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1)
+[17/Oct/2015 18:18:13] WARNING [django.request:170] Not Found: /rsvp/first-event/images/touch/chrome-touch-icon-192x192.png
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1)
+[17/Oct/2015 18:18:13] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1)
+[17/Oct/2015 18:18:14] WARNING [django.request:170] Not Found: /rsvp/first-event/images/touch/chrome-touch-icon-192x192.png
+[17/Oct/2015 18:18:14] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png', 1)
+[17/Oct/2015 18:18:14] DEBUG [django.db.backends:89] (0.016) QUERY = 'SELECT "django_flatpage"."id", "django_flatpage"."url", "django_flatpage"."title", "django_flatpage"."content", "django_flatpage"."enable_comments", "django_flatpage"."template_name", "django_flatpage"."registration_required" FROM "django_flatpage" INNER JOIN "django_flatpage_sites" ON ( "django_flatpage"."id" = "django_flatpage_sites"."flatpage_id" ) WHERE ("django_flatpage"."url" = %s AND "django_flatpage_sites"."site_id" = %s)' - PARAMS = ('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1); args=('/rsvp/first-event/images/touch/chrome-touch-icon-192x192.png/', 1)
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.010) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:18:15.461958', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:18:15.461958', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."event_id" = %s AND "rsvp_reservation"."user_id" = %s)' - PARAMS = (1, 1); args=(1, 1)
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.001) QUERY = 'BEGIN' - PARAMS = (); args=None
+[17/Oct/2015 18:18:15] DEBUG [django.db.backends:89] (0.010) QUERY = 'INSERT INTO "rsvp_reservation" ("notes", "event_id", "user_id", "attending", "updatedAt", "createdAt") VALUES (%s, %s, %s, %s, %s, %s)' - PARAMS = ('', 1, 1, True, '2015-10-17 09:18:15.523962', '2015-10-17 09:18:15.523962'); args=['', 1, 1, True, '2015-10-17 09:18:15.523962', '2015-10-17 09:18:15.523962']
+[17/Oct/2015 18:18:25] DEBUG [django.db.backends:89] (0.009) QUERY = 'SELECT "rsvp_event"."id", "rsvp_event"."title", "rsvp_event"."slug", "rsvp_event"."start_time", "rsvp_event"."duration", "rsvp_event"."location", "rsvp_event"."capacity", "rsvp_event"."notes", "rsvp_event"."updatedAt", "rsvp_event"."createdAt" FROM "rsvp_event" WHERE "rsvp_event"."slug" = %s' - PARAMS = ('first-event',); args=('first-event',)
+[17/Oct/2015 18:18:25] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s)' - PARAMS = ('2015-10-17 09:18:25.956505', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne'); args=('2015-10-17 09:18:25.956505', 'o1z6m37r9jj3ayfchchs2nr6xq2cj7ne')
+[17/Oct/2015 18:18:25] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.018) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."attending" = %s AND "rsvp_reservation"."event_id" = %s)' - PARAMS = ('*', True, 1); args=('*', True, 1)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."event_id" = %s AND "rsvp_reservation"."user_id" = %s)' - PARAMS = (1, 1); args=(1, 1)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."event_id" = %s AND "rsvp_reservation"."user_id" = %s) ORDER BY "rsvp_reservation"."id" ASC LIMIT 1' - PARAMS = (1, 1); args=(1, 1)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.003) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."event_id" = %s AND "rsvp_reservation"."user_id" = %s) ORDER BY "rsvp_reservation"."id" ASC LIMIT 1' - PARAMS = (1, 1); args=(1, 1)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.004) QUERY = 'SELECT "rsvp_reservation"."id", "rsvp_reservation"."notes", "rsvp_reservation"."event_id", "rsvp_reservation"."user_id", "rsvp_reservation"."attending", "rsvp_reservation"."updatedAt", "rsvp_reservation"."createdAt" FROM "rsvp_reservation" WHERE ("rsvp_reservation"."attending" = %s AND "rsvp_reservation"."event_id" = %s)' - PARAMS = (True, 1); args=(True, 1)
+[17/Oct/2015 18:18:26] DEBUG [django.db.backends:89] (0.002) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (1,); args=(1,)
