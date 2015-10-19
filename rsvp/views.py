@@ -10,10 +10,8 @@ from django.core.exceptions import PermissionDenied
 from .models import Event, Reservation
 
 def events_list(request):
-    upcoming_events = Event.objects.filter(start_time__gte=timezone.now())
-    past_events = Event.objects.filter(start_time__lte=timezone.now())
-
-    context = {'upcoming_events': upcoming_events, 'past_events': past_events}
+    events = Event.objects.all()
+    context = {'events': events}
     return render(request,'rsvp/events_list.html', context)
 
 @requires_csrf_token
