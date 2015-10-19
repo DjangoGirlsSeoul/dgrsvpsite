@@ -26,9 +26,24 @@
       {% elif rsvp and rsvp.first.attending %}
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised" data-event-id="{{ event.id }}">Un-rsvp<img class='loading hidden' src="{% static 'rsvp/loading.gif' %}" alt=""></button>
       {% endif %}
-      {%for rsvp in rsvplist%}
-        {{rsvp.user.username}}
-      {%endfor%}
+      </div>
+      <div class="mdl-cell mdl-cell--2-col">
+      {% if rsvp %}
+      <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">RSVP List</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rsvp in rsvplist %}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{rsvp.user.username}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
     {% endif %}
 
   </div>
