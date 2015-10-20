@@ -8,12 +8,14 @@
 {% block content %}
 
 <div class="mdl-grid">
-
+  <div class="mdl-cell mdl-cell--12-col center-align">
+  <h2>{{ event.title }}</h2>
+</div>
   <div class="mdl-cell mdl-cell--2-col">
   </div>
   <div class="mdl-cell mdl-cell--8-col">
     <div class="center-align">
-      <h2>{{ event.title }}</h2>
+
       <p>{{ event.notes }}</p>
       <p>{{ event.start_time }} to {{ event.end_time }}</p>
       <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
@@ -26,7 +28,8 @@
       {% elif rsvp and rsvp.first.attending %}
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised" data-event-id="{{ event.id }}">Un-rsvp<img class='loading hidden' src="{% static 'rsvp/loading.gif' %}" alt=""></button>
       {% endif %}
-      </div>
+  </div>
+
       <div class="mdl-cell mdl-cell--2-col">
       {% if rsvp %}
       <table class="mdl-data-table mdl-js-data-table">
