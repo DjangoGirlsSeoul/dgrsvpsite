@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url('^markdown/', include( 'django_markdown.urls')),
     url(r'^hacks/', include('hacks.urls', namespace="hacks")),
     url(r'^rsvp/', include('rsvp.urls', namespace="rsvp")),
     url(r'^accounts/', include('accounts.urls', namespace="accounts")),

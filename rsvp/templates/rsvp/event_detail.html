@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load django_markdown %}
 
 {% block css %}
   <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_detail.css'%}">
@@ -16,7 +17,7 @@
   <div class="mdl-cell mdl-cell--8-col">
     <div class="center-align">
 
-      <p>{{ event.notes }}</p>
+      <p>{{ event.notes|markdown_safe }}</p>
       <p>{{ event.start_time }} to {{ event.end_time }}</p>
       <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
     </div>

@@ -2,8 +2,11 @@ from datetime import timedelta
 
 from django.db import models
 from django.contrib.auth.models import User
-
 from django.template.defaultfilters import slugify
+
+from django_markdown.models import MarkdownField
+
+
 
 class Reservation(models.Model):
     notes =  models.TextField()
@@ -23,7 +26,7 @@ class Event(models.Model):
     duration = models.DurationField(default=timedelta())
     location = models.TextField()
     capacity = models.IntegerField()
-    notes =  models.TextField()
+    notes =  MarkdownField()
     updatedAt =  models.DateTimeField(auto_now=True)
     createdAt =  models.DateTimeField(auto_now_add=True)
 
