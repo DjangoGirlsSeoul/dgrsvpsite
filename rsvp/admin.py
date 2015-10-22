@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Event, Reservation
 
-from django_markdown.models import MarkdownField
 from django_markdown.admin import AdminMarkdownWidget
 
 class EventAdmin(admin.ModelAdmin):
