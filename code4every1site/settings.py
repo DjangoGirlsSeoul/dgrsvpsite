@@ -22,7 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 
-ALLOWED_HOSTS = ['www.codeforeveryone.co', 'codeforeveryone.co']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['djangogirlsseoul.pythonanywhere.com']
 
 # Application definition
 
@@ -34,11 +37,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
     'django_markdown',
     'landingsite',
     'hacks',
     'accounts',
-    'django.contrib.sites',
     'django.contrib.flatpages',
     'rsvp',
 )
@@ -144,17 +147,17 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'codeforeveryone$codeforeveryone',
-            'USER': 'codeforeveryone',
+            'NAME': 'djangogirlsseoul$default',
+            'USER': 'djangogirlsseoul',
             'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-            'HOST': 'codeforeveryone.mysql.pythonanywhere-services.com',
+            'HOST': 'djangogirlsseoul.mysql.pythonanywhere-services.com',
         },
         'test': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'codeforeveryone$test_codeforeveryone',
-            'USER': 'codeforeveryone',
+            'NAME': 'djangogirlsseoul$test_djangogirlsseoul',
+            'USER': 'djangogirlsseoul',
             'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-            'HOST': 'codeforeveryone.mysql.pythonanywhere-services.com',
+            'HOST': 'djangogirlsseoul.mysql.pythonanywhere-services.com',
         }
     }
 
