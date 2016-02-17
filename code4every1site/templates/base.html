@@ -21,10 +21,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Code for everyone (formally MOOC Circle) site">
+    <meta name="description" content="Django Girls Seoul site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title_tag %}
-      <title>Code for Everyone</title>
+      <title>Django Girls Seoul</title>
     {% endblock title_tag %}
 
     {% block canonical_link %}{% endblock canonical_link %}
@@ -123,8 +123,8 @@
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
               <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="/rsvp/">Meetings</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
+              <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a> -->
+             <!--  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a> -->
 
               {% if request.user.is_anonymous %}
                 <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/login">Login</a>
@@ -149,10 +149,13 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">Home</a>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="#">Weekly Meetings</a>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/login/">Login</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Register</a>
+           <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Resources</a> -->
+          <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a> -->
+          <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
 
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://join.codeforeveryone.co">Join Slack</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://join.djangogirlsseoul">Join Slack</a> -->
           <div class="android-drawer-separator"></div>
           <span class="mdl-navigation__link mdl-typography--text-uppercase" href="">Events</span>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://djangogirls.org/seoul">Django Girls Seoul</a>
@@ -177,7 +180,7 @@
           <div class="mdl-mega-footer--top-section">
             <div class="mdl-mega-footer--left-section">
               <p class="mdl-typography--font-light">
-                © Code For Everyone  |  Seoul, South Korea
+                © Django Girls Seoul |  Seoul, South Korea
               </p>
             </div>
             <div class="mdl-mega-footer--right-section">
@@ -188,13 +191,12 @@
             </div>
           </div>
           <div class="mdl-mega-footer--bottom-section">
-            <a class="android-link mdl-typography--font-light" href="/hacks/">Hacks</a>
-            <a class="android-link mdl-typography--font-light" href="http://mooccircle.github.io">MOOC Circle</a>
-            <a class="android-link mdl-typography--font-light" href="https://github.com/CodeforeveryoneSeoul/codeforeveryone/commit/{{ git_hash }}">
-              {{ git_hash }}
+    <!--         <a class="android-link mdl-typography--font-light" href="/hacks/">Hacks</a> -->
+            <a class="android-link mdl-typography--font-light" href="http://djangogirlscodecamp.github.io/">Django Girls Seoul</a>
+            <a class="android-link mdl-typography--font-light" href="https://github.com/djangogirlscodecamp"
             </a>
             <div class = "mdl-mega-footer--right-section">
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><a href="https://github.com/MOOCCircle/codeforeveryone">View Source</a></button>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><a href="https://github.com/djangogirlscodecamp/dgrsvpsite">View Source</a></button>
             </div>
           </div>
 
