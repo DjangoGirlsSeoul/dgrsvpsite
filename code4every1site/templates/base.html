@@ -131,7 +131,7 @@
                 <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register">Register</a>
               {% endif %}
               {% if not request.user.is_anonymous %}
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/rsvp/myevents">{{ request.user }}</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">{{ request.user }}</a>
                 <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url 'accounts:logout' %}">Logout</a>
               {% endif %}
             </nav>
