@@ -327,7 +327,7 @@ a img{
 }
 
 .android-wear-band-text {
-  
+
   padding: 24px;
   text-align: center;
   color: black;
@@ -546,4 +546,8 @@ a img{
   .android-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
+
+  .rsvp-list-icon {
+  width: 300px;
+}
 }

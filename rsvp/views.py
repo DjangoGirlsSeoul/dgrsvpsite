@@ -46,6 +46,7 @@ def event_signup(request, event_id):
     return HttpResponse(rsvp_json, content_type='application/json')
 
 def user_rsvplist(request):
-    events = Event.objects.all()
-    context = {'events': events}
+    rsvps = Reservation.objects.filter(user=request.user)
+    print(len(rsvps))
+    context = {'rsvps': rsvps}
     return render(request,'rsvp/user_rsvp.html', context)

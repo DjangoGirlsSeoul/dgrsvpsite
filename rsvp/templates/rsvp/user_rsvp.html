@@ -15,23 +15,28 @@
           <div class="android-font android-slogan"> My Events</div>
           <div class="android-font android-sub-slogan"></div>
 
-          
-        </div>
-        <div class="android-more-section">
-          <div class="android-card-container mdl-grid" id="posts">
-            
-              
-            <div id='calendar'></div>
-          </div>
-        </div>
-        {% for event in events %}
-            {% if request.user.is_authenticated and rsvp %}
-            <p>title: {{event.title}}</p>
-              <p>start: {{event.start_time|date}}</p>
-              <p>end: {{event.end_time|date}}</p>
-              <!-- <p>url: {% url 'rsvp:event_detail' event.slug %}</p> -->
 
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--2-offset mdl-cell--1-offset-phone mdl-cell--1-offset-phone mdl-cell--7-col center-align">
+          {% if rsvps %}
+            {% for rsvp in rsvps %}
+              {% if request.user.is_authenticated %}
+              <ul class="rsvp-list-icon mdl-list">
+              <li class="mdl-list__item">
+                <a class="mdl-list__item-primary-content" href="{% url 'rsvp:event_detail' rsvp.event.slug %}">
+                <i class="material-icons mdl-list__item-icon">event_note</i>
+                {{ rsvp.event.title}} |   {{ rsvp.event.start_time|date:"D d M"}}
+              </a>
+              </li>
+            </ul>
             {% endif %}
             {% endfor %}
-{% endblock content %}
+        {% else %}
+        <h2>No RSVPs yet</h2>
+        {% endif %}
+          </div>
+        </div>
 
+
+{% endblock content %}
