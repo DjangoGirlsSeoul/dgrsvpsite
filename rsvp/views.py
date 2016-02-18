@@ -44,3 +44,8 @@ def event_signup(request, event_id):
         rsvp = [rsvp]
     rsvp_json = serializers.serialize('json', rsvp)
     return HttpResponse(rsvp_json, content_type='application/json')
+
+def user_rsvplist(request):
+    events = Event.objects.all()
+    context = {'events': events}
+    return render(request,'rsvp/user_rsvp.html', context)
