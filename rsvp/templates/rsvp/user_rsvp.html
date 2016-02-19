@@ -23,10 +23,11 @@
             {% for rsvp in rsvps %}
               {% if request.user.is_authenticated %}
               <ul class="rsvp-list-icon mdl-list">
-              <li class="mdl-list__item">
+              <li class="mdl-list__item mdl-list__item--two-line">
                 <a class="mdl-list__item-primary-content" href="{% url 'rsvp:event_detail' rsvp.event.slug %}">
                 <i class="material-icons mdl-list__item-icon">event_note</i>
-                {{ rsvp.event.title}} |   {{ rsvp.event.start_time|date:"D d M"}}
+                {{ rsvp.event.title}}
+                 <span class="mdl-list__item-sub-title">{{ rsvp.event.start_time|date:"D d M"}}</span>
               </a>
               </li>
             </ul>
