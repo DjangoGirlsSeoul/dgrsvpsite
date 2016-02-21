@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load tz %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_list.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/lib/fullcalendar.min.css'%}">
+{% endblock css %}
+
+{% block content %}
+
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+        center 30% no-repeat;height:400px;">
+          <div class="android-font android-slogan"> My Events</div>
+          <div class="android-font android-sub-slogan"></div>
+
+
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--2-offset mdl-cell--1-offset-phone mdl-cell--1-offset-phone mdl-cell--7-col center-align">
+          {% if rsvps %}
+            {% for rsvp in rsvps %}
+              {% if request.user.is_authenticated %}
+              <ul class="rsvp-list-icon mdl-list">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <a class="mdl-list__item-primary-content" href="{% url 'rsvp:event_detail' rsvp.event.slug %}">
+                <i class="material-icons mdl-list__item-icon">event_note</i>
+                {{ rsvp.event.title}}
+                 <span class="mdl-list__item-sub-title">{{ rsvp.event.start_time|date:"D d M"}}</span>
+              </a>
+              </li>
+            </ul>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+        <h2>No RSVPs yet</h2>
+        {% endif %}
+          </div>
+        </div>
+
+
+{% endblock content %}

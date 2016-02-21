@@ -48,7 +48,7 @@
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="{% static 'landingsite/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'landingsite/css/messages.css' %}">
     {% block css %}{% endblock css %}
@@ -131,7 +131,7 @@
                 <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register">Register</a>
               {% endif %}
               {% if not request.user.is_anonymous %}
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">{{ request.user }}</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/rsvp/myevents">{{ request.user }}</a>
                 <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url 'accounts:logout' %}">Logout</a>
               {% endif %}
             </nav>
@@ -203,7 +203,7 @@
         </footer>
       </div>
     </div>
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js"></script>
     {% block endjs %}{% endblock endjs %}
   </body>
 </html>
