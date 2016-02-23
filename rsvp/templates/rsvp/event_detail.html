@@ -36,9 +36,20 @@
       {% endif %}
   </div>
 
-      <div class="mdl-cell mdl-cell--2-col">
+      <div class="mdl-cell-middle mdl-cell--2-col">
+        <h6 class="left-align">RSVP List</h6>
       {% if rsvp %}
-      <table class="mdl-data-table mdl-js-data-table">
+      <ul class="rsvp-list-icon mdl-list">
+          {% for rsvp in rsvplist %}
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">person</i>
+          {{rsvp.user.username}}
+          </span>
+      </li>
+      {% endfor %}
+      <ul>
+      <!-- <table class="mdl-data-table mdl-js-data-table">
         <thead>
           <tr>
             <th class="mdl-data-table__cell--non-numeric">RSVP List</th>
@@ -51,7 +62,7 @@
           </tr>
           {% endfor %}
         </tbody>
-      </table>
+      </table> -->
       {% endif %}
     {% endif %}
 
