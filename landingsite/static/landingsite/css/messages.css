@@ -10,3 +10,7 @@ li.message {
     text-align: center;
     width: 100vw;
 }
+.errorlist li{
+  color: red !important;
+
+}
