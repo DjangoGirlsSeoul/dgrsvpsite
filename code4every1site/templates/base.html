@@ -149,8 +149,14 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">Home</a>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="/rsvp/">Weekly Meetings</a>
+          {% if request.user.is_anonymous %}
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/login/">Login</a>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Register</a>
+          {% endif %}
+          {% if not request.user.is_anonymous %}
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/rsvp/myevents">{{ request.user }}</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url 'accounts:logout' %}">Logout</a>
+          {% endif %}
            <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Resources</a> -->
           <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a> -->
           <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
