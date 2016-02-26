@@ -1,4 +1,4 @@
-<h1>Light and Leadership Non-profit Project</h1>
+<h1>Django Girls RSVP Site Project</h1>
 
 <h3>About</h3>
 <p>This site is a Django Girls Seoul member site, where organizers and members can create events, see a calendar of other events. They can also rsvp for each event, see who else has rsvped and check 'my events page where all the events a user has rsvped for will be listed. It's main purpose is to facilitate communication for study meet-ups. </h3>
