@@ -1,30 +1,30 @@
-Code For Everyone Seoul Website
----
-[![Build Status](https://travis-ci.org/CodeforeveryoneSeoul/codeforeveryone.svg)](https://travis-ci.org/CodeforeveryoneSeoul/codeforeveryone)
+<h1>Django Girls RSVP Site Project</h1>
 
-Setting up your local environment
+<h3>About</h3>
+<p>This site is a Django Girls Seoul member site, where organizers and members can create events, see a calendar of other events. They can also rsvp for each event, see who else has rsvped and check 'my events page where all the events a user has rsvped for will be listed. It's main purpose is to facilitate communication for study meet-ups. </h3>
+
+<h3>Setting up your local environment</h3>
 -----
 
-This assumes that you have python3 installed. (we are using 3.4 but this should work for most python 3 versions)
+<p>This assumes that you have python3 installed. (we are using 3.4 but this should work for most python 3 versions)
+Go to a folder where you'll want to save the project folder. </p>
 
-1. Clone the project by entering `git clone git@github.com:MOOCCircle/codeforeveryone.git` in the terminal
-    - This will create a folder called `codeforeveryone` where you ran the command
+1. First fork the djangogirlscodecamp/rsvp repository to your personal Github account by clicking the 'fork' button in the top right side of the screen. 
+<img src="https://github.com/DjangoGirls/tutorial/blob/master/contributing/images/fork.png">
 
-2. Create a virtualenv by creating a new folder `mkdir virtualenvironments` and going into that folder `cd virtualenvironments` 
+2. Clone the project by entering `git clone https://github.com/yourgithubusername/dgrsvpsite.git` in the terminal
+    - This will create a folder called `lightandleadership` where you ran the command
+    - 'cd ..' to leave this folder
 
-3. Create the virtual environment (mostly copied from the django girls tutorial - change `djangogirls` to `codeforeveryone`)
+3. Create a virtualenv by creating a new folder `mkdir virtualenvironments` and going into that folder `cd virtualenvironments` 
+
+4. Create the virtual environment <strong> not inside the dgrsvpsite folder</strong> (mostly copied from the django girls tutorial - check folder names! )
     > ## Virtual environment
 
     > Before we install Django we will get you to install an extremely useful tool to help keep your coding environment tidy on your computer. It's possible to skip this step, but it's highly recommended. Starting with the best possible setup will save you a lot of trouble in the future!
 
     > So, let's create a **virtual environment** (also called a *virtualenv*). Virtualenv will isolate your Python/Django setup on a per-project basis. This means that any changes you make to one website won't affect any others you're also developing. Neat, right?
-
-    > All you need to do is find a directory in which you want to create the `virtualenv`; your home directory, for example. On Windows it might look like `C:\Users\Name\` (where `Name` is the name of your login).
-
-    > For this tutorial we will be using a new directory `djangogirls` from your home directory:
-
-        mkdir djangogirls
-        cd djangogirls
+> All you need to do is find a directory in which you want to create the `virtualenv`; your home directory, for example. On Windows it might look like `C:\Users\Name\` (where `Name` is the name of your login).
 
     > We will make a virtualenv called `myvenv`. The general command will be in the format:
 
@@ -34,7 +34,7 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 
     > To create a new `virtualenv`, you need to open the console (we told you about that a few chapters ago - remember?) and run `C:\Python34\python -m venv myvenv`. It will look like this:
 
-        C:\Users\Name\djangogirls> C:\Python34\python -m venv myvenv
+        C:\Users\Name\virtualenvironments> C:\Python34\python -m venv myvenv
 
     > where `C:\Python34\python` is the directory in which you previously installed Python and `myvenv` is the name of your `virtualenv`. You can use any other name, but stick to lowercase and use no spaces, accents or special characters. It is also good idea to keep the name short - you'll be referencing it a lot!
 
@@ -43,7 +43,7 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
     > Creating a `virtualenv` on both Linux and OS X is as simple as running `python3 -m venv myvenv`.
     It will look like this:
 
-        ~/djangogirls$ python3 -m venv myvenv
+        ~/virtualenvironments$ python3 -m venv myvenv
 
     > `myvenv` is the name of your `virtualenv`. You can use any other name, but stick to lowercase and use no spaces. It is also good idea to keep the name short as you'll be referencing it a lot!
 
@@ -53,10 +53,10 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 
     > > To get around this, use the `virtualenv` command instead.
 
-    > >     ~/djangogirls$ sudo apt-get install python-virtualenv
-    > >    ~/djangogirls$ virtualenv --python=python3.4 myvenv
+    > >     ~/virtualenvironments$ sudo apt-get install python-virtualenv
+    > >    ~/virtualenvironments$ virtualenv --python=python3.4 myvenv
 
-4. Activate the virtualenv (also copied from the djangogirls tutorial - change `djangogirls` to `codeforeveryone`)
+5. Activate the virtualenv (also copied from the djangogirls tutorial - check folder names!)
     > ## Working with virtualenv
 
     > The command above will create a directory called `myvenv` (or whatever name you chose) that contains our virtual environment (basically a bunch of directory and files). 
@@ -65,27 +65,27 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 
     > Start your virtual environment by running:
 
-        C:\Users\Name\djangogirls> myvenv\Scripts\activate
+        C:\Users\Name\virtualenvironments> myvenv\Scripts\activate
 
     > #### Linux and OS X 
 
     > Start your virtual environment by running:
 
-        ~/djangogirls$ source myvenv/bin/activate
+        ~/virtualenvironments$ source myvenv/bin/activate
 
     > Remember to replace `myvenv` with your chosen `virtualenv` name!
 
     > > __NOTE:__ sometimes `source` might not be available. In those cases try doing this instead:
 
-    > >    ~/djangogirls$ . myvenv/bin/activate
+    > >    ~/virtualenvironments$ . myvenv/bin/activate
 
     > You will know that you have `virtualenv` started when you see that the prompt in your console looks like:
 
-        (myvenv) C:\Users\Name\djangogirls>
+        (myvenv) C:\Users\Name\virtualenvironments>
 
     > or:
 
-        (myvenv) ~/djangogirls$
+        (myvenv) ~/virtualenvironments$
 
     > Notice the prefix `(myvenv)` appears!
 
@@ -93,13 +93,15 @@ This assumes that you have python3 installed. (we are using 3.4 but this should 
 
     > OK, we have all important dependencies in place. We can finally install Django!
     
-5. Go into the `codeforeveryone` directory `cd ../codeforeveryone`
 
-6. Run `pip install -r requirements.txt` to install the pip dependencies
+6. ( 'cd ..' to leave virtualenvironments folder) Go into the `dgrsvpsite` directory `cd ../dgrsvpsite`
 
-7. Run `python manage.py runserver`
+7. Run `pip install -r requirements.txt` to install the pip dependencies
+8. Run 'python manage.py migrate'
 
-8. Success! (hopefully)
+9. Run `python manage.py runserver`
+
+10. Success! (hopefully)
 
 * If you see anything wrong here, please make an issue or a pull request!
 

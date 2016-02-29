@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 
 def register(request):
+    if request.user:
+        return HttpResponseRedirect('/')
+
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
         if form.is_valid():
@@ -18,7 +21,7 @@ def register(request):
             return HttpResponseRedirect('/')
     else:
         form = UserCreateForm()
-    return render(request, 'registration/register.html', { 'form': form }) 
+    return render(request, 'registration/register.html', { 'form': form })
 
 def logout_view(request):
     logout(request)
