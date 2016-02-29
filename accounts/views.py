@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 
 def register(request):
-    if request.user:
+    if request.user.is_authenticated():
         return HttpResponseRedirect('/')
 
     if request.method == 'POST':
