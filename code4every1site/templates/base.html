@@ -1,56 +1,29 @@
 {% load staticfiles %}
-<!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Django Girls Seoul Code Camp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="{% static 'landingsite/css/flexslider.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/line-icons.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/elegant-icons.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/lightbox.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/theme.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{% static 'landingsite/css/custom.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <!--[if gte IE 9]>
+        	<link rel="stylesheet" type="text/css" href="css/ie9.css" />
+		<![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+        <script src="{% static 'landingsite/js/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Django Girls Seoul site">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% block title_tag %}
-      <title>Django Girls Seoul</title>
-    {% endblock title_tag %}
-
-    {% block canonical_link %}{% endblock canonical_link %}
-
-    {% block fb_tags %}{% endblock fb_tags %}
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="{% static 'landingsite/images/favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'landingsite/images/favicon.ico' %}" type="image/x-icon">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Django Girls Seoul">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <!-- Page styles -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.indigo-pink.min.css" />
-    <link rel="stylesheet" href="{% static 'landingsite/css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'landingsite/css/messages.css' %}">
-    {% block css %}{% endblock css %}
     <style>
     #view-source {
       position: fixed;
@@ -85,130 +58,151 @@
         }
     });
   </script>
-  </head>
-  <body {% block body_bg %}{% endblock body_bg %}>
-  {% block fb_init %}
-      <div id="fb-root"></div>
-        <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '443916952475444',
-          xfbml      : true,
-          version    : 'v2.4'
-        });
-      };
+  {% block css %}{% endblock css %}
+    </head>
+    <body>
+    	<div class="loader">
+    		<div class="spinner">
+			  <div class="double-bounce1"></div>
+			  <div class="double-bounce2"></div>
+			</div>
+    	</div>
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-  {% endblock fb_init %}
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<div class="nav-container">
+			<nav class="top-bar overlay-bar">
+				<div class="container">
 
-      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-        <div class="mdl-layout__header-row">
-          <span class="android-title mdl-layout-title">
-            <a href="/">
-              <img class="android-logo-image" src="{% static 'landingsite/images/dgseoul-transparent-orange.png' %}">
-            </a>
-          </span>
-          <!-- Add spacer, to align navigation to the right in desktop -->
-          <div class="android-header-spacer mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <div class="android-navigation-container">
-            <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="/rsvp/">Meetings</a>
-              <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a> -->
-             <!--  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a> -->
+					<div class="row nav-menu">
+						<div class="col-md-3 col-sm-3 columns">
+							<img class="logo logo-light" alt="Logo" src="{% static 'landingsite/images/dgseoul-transparent-orange.png' %}">
+							<img class="logo logo-dark" alt="Logo" src="{% static 'landingsite/images/dgseoul-transparent-orange.png' %}">
+						</div>
 
-              {% if request.user.is_anonymous %}
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/login">Login</a>
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register">Register</a>
-              {% endif %}
-              {% if not request.user.is_anonymous %}
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/rsvp/myevents">{{ request.user }}</a>
-                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url 'accounts:logout' %}">Logout</a>
-              {% endif %}
-            </nav>
-          </div>
-          <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="{% static 'landingsite/images/dgseoul-transparent-orange.png' %}">
-          </span>
-        </div>
-      </div>
+						<div class="col-md-9 col-sm-9 columns">
+							<ul class="menu">
+								<li><a href="/#team">Team</a></li>
+								<li><a href="/#curriculum">Curriculum</a></li>
+								<li><a href="/#portfolios">Projects</a></li>
+								<li><a href="/#non-profits">Non-profits</a></li>
+								<li><a href="/#sponsors">Sponsors</a></li>
+								<li>
+								<li>
+                            <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Members<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dark" href="/rsvp/events">Events</a></li>
+                                {% if request.user.is_anonymous %}
 
-      <div class="android-drawer mdl-layout__drawer">
-        <span class="mdl-layout-title">
-          <img class="android-logo-image" src="{% static 'landingsite/images/dgseoul-transparent-orange.png' %}">
-        </span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">Home</a>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" id="tt2" href="/rsvp/">Weekly Meetings</a>
-          {% if request.user.is_anonymous %}
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/login/">Login</a>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Register</a>
-          {% endif %}
-          {% if not request.user.is_anonymous %}
-            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/rsvp/myevents">{{ request.user }}</a>
-            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{% url 'accounts:logout' %}">Logout</a>
-          {% endif %}
-           <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/accounts/register/">Resources</a> -->
-          <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/hacks/">Hacks</a> -->
-          <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/about-us/">About us</a>
+          						<li><a class="dark" href="/accounts/login/">Login</a></li>
+          						<li ><a  class="dark" href="/accounts/register/">Register</a></li>
+					          {% endif %}
+					          {% if not request.user.is_anonymous %}
+					            <li><a class="dark" href="/rsvp/myevents">{{ request.user }}</a></li>
+					            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+					          {% endif %}
+                            </ul>
+							{% if messages %}
+          					<ul class="messages ">
+              				{% for message in messages %}
+              				<li{% if message.tags %} class=" dark {{ message.tags }}"{% endif %}>{{ message }}</li>
+              			{% endfor %}
+          				</ul>
+          				{% endif %}
+							<ul class="social-icons text-right">
+								<li>
+									<a href="http://twitter.com/djangogirlseoul" target="_blank">
+										<i class="icon social_twitter"></i>
+									</a>
+								</li>
 
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://join.djangogirlsseoul">Join Slack</a> -->
-          <div class="android-drawer-separator"></div>
-          <span class="mdl-navigation__link mdl-typography--text-uppercase" href="">Events</span>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://djangogirls.org/seoul">Django Girls Seoul</a>
-        </nav>
-      </div>
+								<li>
+									<a href="http://facebook.com/djangogirlsseoul" target="_blank">
+										<i class="icon social_facebook"></i>
+									</a>
+								</li>
 
-      <div class="android-content mdl-layout__content">
-        <div class="content">
-          {% if messages %}
-          <ul class="messages">
-              {% for message in messages %}
-              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-              {% endfor %}
-          </ul>
-          {% endif %}
-          {% block content %}
-            {# your html goes here #}
-          {% endblock content %}
-        </div>
+								<li>
+									<a href="https://instagram.com/djangogirlsseoul" target="_blank">
+										<i class="icon social_instagram"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 
-        <footer class="android-footer mdl-mega-footer">
-          <div class="mdl-mega-footer--top-section">
-            <div class="mdl-mega-footer--left-section">
-              <p class="mdl-typography--font-light">
-                © Django Girls Seoul |  Seoul, South Korea
-              </p>
-            </div>
-            <div class="mdl-mega-footer--right-section">
-              <a class="mdl-typography--font-light" href="#top">
-                Back to Top
-                <i class="material-icons">expand_less</i>
-              </a>
-            </div>
-          </div>
-          <div class="mdl-mega-footer--bottom-section">
-    <!--         <a class="android-link mdl-typography--font-light" href="/hacks/">Hacks</a> -->
-            <a class="android-link mdl-typography--font-light" href="http://djangogirlscodecamp.github.io/">Django Girls Seoul</a>
-            <a class="android-link mdl-typography--font-light" href="https://github.com/djangogirlscodecamp"
-            </a>
-            <div class = "mdl-mega-footer--right-section">
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><a href="https://github.com/djangogirlscodecamp/dgrsvpsite">View Source</a></button>
-            </div>
-          </div>
+					<div class="mobile-toggle">
+						<i class="icon icon_menu"></i>
+					</div>
 
-        </footer>
-      </div>
-    </div>
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js"></script>
-    {% block endjs %}{% endblock endjs %}
-  </body>
+				</div>
+			</nav>
+			</div>
+
+    {% block canonical_link %}{% endblock canonical_link %}
+
+    {% block fb_tags %}{% endblock fb_tags %}
+			{% block content %}
+			{% endblock content%}
+
+<div class="footer-container text-center">
+			<footer class="bg-primary short-2">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+						<h3>Django Girls Seoul</h3>
+							<ul>
+								<li><a href="mailto:seoul@djangogirls.org">seoul@djangogirls.org</a></li>
+								<li><a href="https://djangogirls.org/pages/coc/">Code of Conduct</a></li>
+								<li><a href="https://djangogirls.org">Global Django Girls</a></li>
+								<li><a href="https://djangogirls.org/seoul">Official Workshop Site</a></li>
+						</div>
+						<div class="col-sm-3">
+							<h3>Resources</h3>
+							<ul>
+								<li><a href="http://tutorial.djangogirls.org/">Tutorial</a></li>
+								<li><a href="https://www.gitbook.com/book/djangogirls/django-girls-tutorial-extensions/details">Extended Material</a></li>
+								<li><a href="https://github.com/djangogirlscodecamp/curriculum">CodeCamp Curriculum</a></li>
+								<li><a href="https://github.com/djangogirlscodecamp/resources">Other Resources</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3">
+							<h3>Community</h3>
+							<ul>
+								<li><a href="https://www.facebook.com/djangogirlsseoul">Facebook</a></li>
+								<li><a href="https://twitter.com/djangogirlseoul">Twitter</a></li>
+								<li><a href="https://github.com/djangogirlscodecamp">GitHub</a></li>
+
+								<!-- <li><a href="">InstaGram</a></li> -->
+							</ul>
+						</div>
+						<div class="col-sm-3">
+						<h3>Our Numbers: </h3>
+							<ul>
+							<li><p><strong>160 Attendees</strong></p></li>
+							<li><p><strong>4 Events</strong></p></li>
+							<li><p><strong>500 Applicants</strong></p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</footer>
+		</div>
+
+		<script src="https://www.youtube.com/iframe_api' %}"></script>
+		<script src="{% static 'landingsite/js/jquery.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/jquery.plugin.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/jquery.flexslider-min.js' %}"></script>
+        <script src="{% static 'landingsite/js/smooth-scroll.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/skrollr.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/spectragram.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/scrollReveal.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/isotope.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/twitterFetcher_v10_min.js' %}"></script>
+        <script src="{% static 'landingsite/js/lightbox.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'landingsite/js/scripts.js' %}"></script>
+         {% block endjs %}{% endblock endjs %}
+    </body>
 </html>
+

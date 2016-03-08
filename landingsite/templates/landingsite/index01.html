@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<a name="top"></a>
+<div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/slide01.jpg' %})
+center 30% no-repeat;">
+  <div class="android-font android-slogan">print ("Django Girls Seoul")</div>
+  
+  <div class="android-font android-sub-slogan">Be yourself. Do your thing. See what's going on.</div>
+
+
+  <a href="#screens">
+    <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+      <i class="material-icons">expand_more</i>
+    </button>
+  </a>
+</div>
+<div class="android-customized-section">
+  <div class="android-customized-section-text">
+    <div id="screens" class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Teach and Learn</div>
+    <p class="mdl-typography--font-light">
+
+      <br>
+      <a href="" class="android-link mdl-typography--font-light"></a>
+    </p>
+  </div>
+  <div  class="android-customized-section-image" style="background: url( {% static 'landingsite/images/slide03.jpg' %}) center top no-repeat;"></div>
+</div>
+<div class="android-customized-section">
+  <div class="android-customized-section-text">
+    <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Workshops and Events</div>
+    <p class="mdl-typography--font-light">
+
+      <br>
+      <a href="" class="android-link mdl-typography--font-light"></a>
+    </p>
+  </div>
+  <div  class="android-customized-section-image" style="background: url( {% static 'landingsite/images/code.jpg' %}) center top no-repeat;"></div>
+</div>
+<div class="android-wear-section" style="background: url( {% static 'landingsite/images/hack.jpg' %}) center top no-repeat;">
+  <div class="android-wear-band">
+    <div class="android-wear-band-text">
+      <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Work for Nonprofits</div>
+      <p class="mdl-typography--headline mdl-typography--font-thin">
+      </p>
+      <p>
+        <!-- <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href=""> -->
+          <!-- See what's new in the Play Store&nbsp;<i class="material-icons">chevron_right</i> -->
+        <!-- </a> -->
+      </p>
+    </div>
+  </div>
+</div>  
+
+
+{% endblock content %}
+
+ 

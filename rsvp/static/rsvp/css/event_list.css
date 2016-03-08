@@ -1,3 +1,36 @@
+#calendar {
+  padding-top:50px;
+  padding-bottom:50px;
+  color:black;
+}
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover, .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
+  border-color: black;
+}
+
+.titlerow {
+  padding-top: 200px;
+}
+.titlebackground {
+   display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+  background-position: center top;
+  height: 350px;
+  /*color: white;*/
+}
+.myeventscontainer {
+  min-height: 300px;
+  padding-top:30px;
+}
+.myeventlist{
+  width:70%;
+}
+.fc-day {
+  border-color:black;
+}
+.hackimg {
+  max-height: 300px;
+}
 .demo-card-event.mdl-card {
   width: 236px;
   height: 256px;

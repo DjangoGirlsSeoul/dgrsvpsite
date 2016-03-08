@@ -4,40 +4,57 @@
 
 {% block css %}
   <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_detail.css'%}">
+
 {% endblock css %}
 
 {% block content %}
+        <div class="text-center titlebackground" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'landingsite/images/slide01.jpg' %})
+        center 30% no-repeat;height:400px; ">
 
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col center-align">
-  <h2>{{ event.title }}</h2>
-</div>
-  <div class="mdl-cell mdl-cell--2-col">
-  </div>
-  <div class="mdl-cell mdl-cell--8-col">
+          <div class="row titlerow">
+            <div class="col-md-12 text-center">
+              <span class="text-white alt-font"> </span>
+              <h1 class="text-white"><strong>{{ event.title }}</strong></h1>
+              <!-- <p class="lead text-white">We want to inspire women to fall in love with programming.</p>
+              <a href="#team" class="btn btn-primary btn-white">Meet the Coaches!</a>
+              <a href="#curriculum" class="btn btn-primary btn-filled">See our Curriculum</a> -->
+            </div>
+          </div>
+        </div>
+      </header>
+<div class="container eventcontainer">
+<div class="row">
+  <div class="col-md-10">
     <div class="center-align">
-      <div><i class="material-icons md-48">event_note</i><p>{{ event.notes|markdown_safe }}</p></div>
-      <div><i class="material-icons md-48">access_time</i><p>{{ event.start_time }} to {{ event.end_time }}</p></div>
+    <h2>{{ event.title }}</h2>
+      <div><p>{{ event.notes|markdown_safe }}</p></div>
+      <div><p>{{ event.start_time }} to {{ event.end_time }}</p></div>
       <div>
-        <i class="material-icons md-48">people_outline</i>
-        <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
+      <p>Spaces Left: <span class="spaces-left">{{ spaces_left }}</span>/{{ event.capacity }}</p>
       </div>
-    </div>
+
     {% if request.user.is_authenticated %}
+      <!--  -->
+      {% if event.location %}
+      <div class="location"><p>{{ event.location|safe }}</p></div>
+      {% endif %}
+  </div>
+  </div>
+
+
+      <div class="col-md-2">
+
       {% if not rsvp %}
+
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
       {% elif rsvp and not rsvp.first.attending %}
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-event-id="{{ event.id }}">RSVP</button>
       {% elif rsvp and rsvp.first.attending %}
         <button class="rsvp-submit right mdl-button mdl-js-button mdl-button--raised" data-event-id="{{ event.id }}">Un-rsvp<img class='loading hidden' src="{% static 'rsvp/loading.gif' %}" alt=""></button>
       {% endif %}
-      {% if event.location %}
-      <div class="location"><p>{{ event.location|safe }}</p></div>
-      {% endif %}
-  </div>
 
-      <div class="mdl-cell-middle mdl-cell--2-col">
-        <h6 class="left-align">RSVP List</h6>
+        <h6>RSVP List</h6>
+
       {% if rsvp %}
       <ul class="rsvp-list-icon mdl-list">
           {% for rsvp in rsvplist %}
@@ -52,7 +69,7 @@
           </span>
       </li>
       {% endfor %}
-      <ul>
+      </ul>
       <!-- <table class="mdl-data-table mdl-js-data-table">
         <thead>
           <tr>
@@ -72,8 +89,9 @@
 
   </div>
   </div>
-
-
+</div>
+{% endblock content %}
+{% block endjs %}
 <script type="text/javascript">
   $(document).ready(function(){
     $(".rsvp-submit").on('click', function(){
@@ -95,4 +113,5 @@
 
 </script>
 
-{% endblock content %}
+{% endblock endjs%}
+
