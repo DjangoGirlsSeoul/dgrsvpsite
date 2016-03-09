@@ -1,68 +1,63 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load tz %}
-
 {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_list.css'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'rsvp/lib/fullcalendar.min.css'%}">
-  <link rel="stylesheet" type="text/css" href="{% static 'rsvp/css/event_list.css'%}">
-
 {% endblock css %}
-
 {% block content %}
-           <div class="text-center titlebackground" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'landingsite/images/hack.jpg' %})
-        center 30% no-repeat;height:400px; ">
-
-          <div class="row titlerow">
-            <div class="col-md-12 text-center">
-              <span class="text-white alt-font"> </span>
-              <h1 class="text-white"><strong>Django Girls Seoul Events</strong></h1>
-              <h1 class="text-white">When one teaches, two learn.</h1>
-              <!-- <p class="lead text-white">We want to inspire women to fall in love with programming.</p>
-              <a href="#team" class="btn btn-primary btn-white">Meet the Coaches!</a>
-              <a href="#curriculum" class="btn btn-primary btn-filled">See our Curriculum</a> -->
-            </div>
-          </div>
+<div class="text-center titlebackground" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'landingsite/images/hack.jpg' %})
+    center 30% no-repeat;height:400px; ">
+    <div class="row titlerow">
+        <div class="col-md-12 text-center">
+            <span class="text-white alt-font"> </span>
+            <h1 class="text-white"><strong>Django Girls Seoul Events</strong></h1>
+            <h1 class="text-white">When one teaches, two learn.</h1>
+            <!--  <a name="top"></a>
+                <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+                center 30% no-repeat;height:400px;">
+                  <div class="android-font android-slogan">Events</div>
+                  <div class="android-font android-sub-slogan"></div> -->
+            <a href="#posts">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <i class="material-icons">expand_more</i>
+            </button>
+            </a>
         </div>
-
-      <section id="eventscalendar">
-<div class="background-image-holder parallax-background" style="opacity:0.1;">
-        <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/coach.jpg' %}">
-      </div>
-
-      <div class="container calendar-container">
-
-            <div id='calendar'></div>
-      </div>
+    </div>
 </div>
-</section>
-
+<div class="android-more-section">
+    <div class="android-card-container mdl-grid" id="posts">
+        <div id='calendar'></div>
+    </div>
+</div>
 {% endblock content %}
-
 {% block endjs %}
-    <script src="{% static 'rsvp/lib/moment.min.js'%}"></script>
-    <script src="{% static 'rsvp/lib/fullcalendar.min.js'%}"></script>
-    <script>
-      $(document).ready(function() {
+<script src="{% static 'rsvp/lib/moment.min.js'%}"></script>
+<script src="{% static 'rsvp/lib/fullcalendar.min.js'%}"></script>
+<script>
+    $(document).ready(function() {
 
-        $('#calendar').fullCalendar({
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,basicWeek,basicDay'
+      $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,basicWeek,basicDay'
+        },
+        eventLimit: true, // allow "more" link when too many events
+        events: [
+        {% for event in events %}
+          {
+            'title': "{{event.title}}",
+            'start': "{{event.start_time|date:'c'}}",
+            'end': "{{event.end_time|date:'c'}}",
+            'url': "{% url 'rsvp:event_detail' event.slug %}"
           },
-          eventLimit: true, // allow "more" link when too many events
-          events: [
-          {% for event in events %}
-            {
-              'title': "{{event.title}}",
-              'start': "{{event.start_time|date:'c'}}",
-              'end': "{{event.end_time|date:'c'}}",
-              'url': "{% url 'rsvp:event_detail' event.slug %}"
-            },
-          {% endfor %}
-          ]
-        });
-
+        {% endfor %}
+        ]
       });
-    </script>
+
+    });
+</script>
 {% endblock endjs %}
+
