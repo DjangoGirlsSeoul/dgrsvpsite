@@ -51,7 +51,7 @@
     </div>
     <div class="mdl-cell-middle mdl-cell--2-col">
         {% if rsvp %}
-         <h6 class="left-align">RSVP List</h6>
+        <h6 class="left-align">RSVP List</h6>
         <ul class="rsvp-list-icon mdl-list">
         {% for rsvp in rsvplist %}
         <li class="mdl-list__item">
@@ -66,20 +66,6 @@
         </li>
         {% endfor %}
         <ul>
-        <!-- <table class="mdl-data-table mdl-js-data-table">
-            <thead>
-              <tr>
-                <th class="mdl-data-table__cell--non-numeric">RSVP List</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for rsvp in rsvplist %}
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">{{rsvp.user.username}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            </table> -->
         {% endif %}
         {% endif %}
     </div>
@@ -89,7 +75,7 @@
       $(".rsvp-submit").on('click', function(){
         var $this = $(this);
         $this.prop("disabled", true)
-        $.post("{% url 'rsvp:event_signup' event.id %}").done(function(data){
+        $.post("{% url 'rsvp:event_signup' event.id %}",{"csrfmiddlewaretoken":"{{ csrf_token }}"}).done(function(data){
           $this.prop("disabled", false)
           console.log(['done', data]);
           $this.toggleClass('mdl-button--colored');

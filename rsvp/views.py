@@ -23,12 +23,12 @@ def event_detail(request, slug):
     if request.user.is_authenticated():
         rsvp = Reservation.objects.filter(event=event, user=request.user)
         rsvplist = Reservation.objects.filter(event=event, attending=True)
+        print("total rsvp:",len(rsvplist))
     number_attending = Reservation.objects.filter(event=event, attending=True).count()
 
     context = {'event': event, 'rsvp': rsvp, 'number_attending': number_attending, 'spaces_left': event.capacity - number_attending, 'rsvplist': rsvplist}
     return render(request,'rsvp/event_detail.html', context)
 
-@csrf_exempt
 @require_http_methods(["POST"])
 @login_required
 def event_signup(request, event_id):
@@ -37,6 +37,7 @@ def event_signup(request, event_id):
         raise PermissionDenied
     event = get_object_or_404(Event, id=event_id)
     rsvp = Reservation.objects.filter(event=event, user=user)
+    print("event_signup",len(rsvp))
     if rsvp:
         rsvp_single = rsvp.first()
         rsvp_single.attending = not rsvp_single.attending
