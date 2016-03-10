@@ -3,9 +3,10 @@ from django.shortcuts import get_object_or_404,render
 from django.http import HttpResponse, Http404, JsonResponse
 from django.template import RequestContext, loader
 from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import requires_csrf_token
+from django.views.decorators.csrf import requires_csrf_token,csrf_exempt
 from django.core import serializers
 from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
 
 from .models import Event, Reservation
 
@@ -27,7 +28,9 @@ def event_detail(request, slug):
     context = {'event': event, 'rsvp': rsvp, 'number_attending': number_attending, 'spaces_left': event.capacity - number_attending, 'rsvplist': rsvplist}
     return render(request,'rsvp/event_detail.html', context)
 
+@csrf_exempt
 @require_http_methods(["POST"])
+@login_required
 def event_signup(request, event_id):
     user = request.user
     if not user.is_authenticated():

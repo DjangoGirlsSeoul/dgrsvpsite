@@ -62,3 +62,9 @@ footer h3{
 .miniimg {
     height: 100px;
 }
+
+.dropdown-menu li a:hover {
+ background-color: transparent;
+ text-decoration: underline;
+
+}
