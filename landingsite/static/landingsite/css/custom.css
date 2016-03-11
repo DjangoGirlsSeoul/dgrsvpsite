@@ -1,0 +1,70 @@
+.logo.logo-wide {
+    max-width: 240px;
+}
+.studentport {
+	padding-top: 2%;
+}
+.nonprofit {
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: auto;
+    min-height: 300px;
+    padding: 1em;
+}
+a {
+    color:#333333;;
+}
+
+p {
+	font-size:15px;
+}
+
+footer li, footer a{
+	color:white;
+}
+footer h3{
+	font-weight: 400;
+
+}
+.dropdown-menu {
+    background-color: transparent;
+}
+.overlay-bar .menu li a  .dark {
+    color: gray;
+    background:rgba(255,255,255,.5)
+    border-radius: 5px;
+}
+.titlerow {
+    padding-top: 150px;
+}
+.login {
+    padding:20px;
+}
+.portimg {
+    max-width: 300px;
+    max-height: 300px;
+}
+.sponsorimg {
+    padding-top:2em;
+}
+.curriculum {
+    padding-top:3em;
+}
+
+.sponsorimg {
+    padding-top:2em;
+    max-width:100%;
+    max-height:150px;
+}
+
+.miniimg {
+    height: 100px;
+}
+
+.dropdown-menu li a:hover {
+ background-color: transparent;
+ text-decoration: underline;
+
+}

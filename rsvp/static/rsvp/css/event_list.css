@@ -1,3 +1,25 @@
+.titlerow {
+  padding-top: 200px;
+}
+.titlebackground {
+   display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+  background-position: center top;
+  height: 350px;
+  /*color: white;*/
+}
+
+/*made a fixed min height for my events - looks bad if not many listed*/
+.myeventscontainer {
+  min-height: 300px;
+}
+.fc-day {
+  border-color:black;
+}
+.hackimg {
+  max-height: 300px;
+}
 .demo-card-event.mdl-card {
   width: 236px;
   height: 256px;
