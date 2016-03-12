@@ -3,7 +3,7 @@
 <html class="no-js">
     <head>
         <meta name="mobile-web-app-capable" content="yes">
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" /> 
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" />
         <meta http-equiv="Pragma" content="no-cache" />
         <link rel="shortcut icon" href="{% static 'landingsite/images/favicon.ico' %}" type="image/x-icon">
         <link rel="icon" href="{% static 'landingsite/images/favicon.ico' %}" type="image/x-icon">
@@ -89,16 +89,10 @@
                         </div>
                         <div class="col-md-9 col-sm-9 columns">
                             <ul class="menu">
-                                <li><a href="/#team">Team</a></li>
-                                <li><a href="/#curriculum">Curriculum</a></li>
+                                <li><a href="/#team">About Us</a></li>
                                 <li><a href="/#portfolios">Projects</a></li>
-                                <li><a href="/#non-profits">Non-profits</a></li>
-                                <li><a href="/#sponsors">Sponsors</a></li>
-                                <li>
-                                    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Meet-ups-<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dark" href="/rsvp/events">Events</a></li>
-                                        {% if request.user.is_anonymous %}
+                                <li><a class="dark" href="/rsvp/events">Events</a></li>
+                                 {% if request.user.is_anonymous %}
                                         <li><a class="dark" href="/accounts/login/">Login</a></li>
                                         <li ><a  class="dark" href="/accounts/register/">Register</a></li>
                                         {% endif %}
@@ -106,6 +100,7 @@
                                         <li><a class="dark" href="/rsvp/myevents">{{ request.user }}</a></li>
                                         <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
                                         {% endif %}
+
                                     </ul>
                                     <!--dropdown menu-->
                                 </li>
