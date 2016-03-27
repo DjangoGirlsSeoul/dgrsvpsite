@@ -15,22 +15,21 @@
     <div class="mdl-grid login">
       <div class="mdl-cell mdl-cell--4-col"></div>
       <div class="mdl-cell mdl-cell--4-col">
-        <h2>Login</h2>
         {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
         {% endif %}
         <form method="post" action="{% url 'accounts:login' %}">
             {% csrf_token %}
             {% for field in form %}
-              <div class="mdl-textfield mdl-js-textfield">
-                {{ field|addcss:"mdl-textfield__input" }}
-                <label class="mdl-textfield__label" for="{{field.id_for_label}}">{{ field.label }}</label>
+              <div class="form-group">
+                <label  for="{{field.id_for_label}}">{{ field.label }}</label>
+                {{ field|addcss:"form-control" }}
               </div>
               {{ field.errors }}
             {% endfor %}
             <input type="hidden" name="next" value="{% url 'landingsite:index' %}" />
             <div>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+              <button class="btn btn-default" type="submit">
                 Login
               </button>
             </div>

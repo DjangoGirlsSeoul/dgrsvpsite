@@ -1,10 +1,22 @@
-    {% extends "base.html" %}
-    {% load staticfiles %}
-    {% block content %}
-    <div class="main-container">
-        <header class="fullscreen-element no-pad centered-text">
-            <div class="background-image-holder parallax-background overlay" style="color:rgba(0,0,0,0.5);">
-                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/event.png' %}">
+{% extends "base.html" %}
+{% load staticfiles %}
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="main-container">
+    <header class="fullscreen-element no-pad centered-text">
+        <div class="background-image-holder parallax-background overlay" style="color:rgba(0,0,0,0.5);">
+            <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/event.png' %}">
+        </div>
+        <div class="container align-vertical">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span class="text-white alt-font"> </span>
+                    <h1 class="text-white">Django Girls Seoul<br><br></h1>
+                    <p class="lead text-white">We want to inspire women to fall in love with programming.</p>
+                    <a href="#team" class="btn btn-primary btn-white">Meet the Coaches!</a>
+                    <a href="#curriculum" class="btn btn-primary btn-filled">See our Curriculum</a>
+                </div>
             </div>
             <div class="container align-vertical">
                 <div class="row">
