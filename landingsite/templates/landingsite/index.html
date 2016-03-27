@@ -1,375 +1,383 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block content %}
-<div class="main-container">
-    <header class="fullscreen-element no-pad centered-text">
-        <div class="background-image-holder parallax-background overlay" style="color:rgba(0,0,0,0.5);">
-            <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/event.png' %}">
-        </div>
-        <div class="container align-vertical">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <span class="text-white alt-font"> </span>
-                    <h1 class="text-white">Django Girls Code Camp<br><br></h1>
-                    <p class="lead text-white">We want to inspire women to fall in love with programming.</p>
-                    <a href="#team" class="btn btn-primary btn-white">Meet the Coaches!</a>
-                    <a href="#curriculum" class="btn btn-primary btn-filled">See our Curriculum</a>
+    {% extends "base.html" %}
+    {% load staticfiles %}
+    {% block content %}
+    <div class="main-container">
+        <header class="fullscreen-element no-pad centered-text">
+            <div class="background-image-holder parallax-background overlay" style="color:rgba(0,0,0,0.5);">
+                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/event.png' %}">
+            </div>
+            <div class="container align-vertical">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="text-white alt-font"> </span>
+                        <h1 class="text-white">Django Girls Code Camp<br><br></h1>
+                        <p class="lead text-white">We want to inspire women to fall in love with programming.</p>
+                        <a href="#team" class="btn btn-primary btn-white">Meet the Coaches!</a>
+                        <a href="#curriculum" class="btn btn-primary btn-filled">See our Curriculum</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <section class="team-1" id="team">
-        <div class="background-image-holder parallax-background" style="opacity:0.2;">
-            <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/coach.jpg' %}">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <h1>Organizers and Coaches</h1>
-                    <p class="lead">
-                        These are the awesome volunteers that make all of this possible. Without the help of each and everyone of these wonderful people Django Girls Seoul Code Camp wouldn't have been possible!
-                    </p>
+        </header>
+        <section class="team-1" id="team">
+            <div class="background-image-holder parallax-background" style="opacity:0.2;">
+                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/coach.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1>Organizers and Coaches</h1>
+                        <p class="lead">
+                            These are the awesome volunteers that make all of this possible. Without the help of each and everyone of these wonderful people Django Girls Seoul Code Camp wouldn't have been possible!
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4 col-md-offset-1">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/rach.jpg.160x160_q85_crop-smart.jpg">
+                            <h5>Rachell Calhoun</h5>
+                            <span>Organizer</span><br>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="http://rachellcalhoun.com">
+                                    <i class="icon icon_compass"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/dy_small.jpg.160x160_q85_crop-smart.jpg">
+                            <h5>박다영</h5>
+                            <span>Organizer</span><br>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/hassan.jpg.160x160_q85_crop-smart.jpg">
+                            <h5>Hassan Abid</h5>
+                            <span>Organizer and Coach</span><br>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="http://hassanabid.com">
+                                    <i class="icon icon_compass"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/sujin.jpg.160x160_q85_crop-smart.jpg">
+                            <h5>이수진</h5>
+                            <span>Organizer</span><br>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="http://sujinlee.me">
+                                    <i class="icon icon_compass"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/jin.jpg.160x160_q85_crop-smart.jpg ">
+                            <h5>Jin Park</h5>
+                            <span>Organizer and Coach</span><br>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="http://jinpark.net">
+                                    <i class="icon icon_compass"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4 col-md-offset-1">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src=" https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/p160x160/12299306_989734917715180_8803150683617084057_n.jpg?oh=a4db211a5a0ae43ed9ca6c20b01cd420&oe=5720B0AD&__gda__=1457074705_38c37b56374c2bafbef17722bb677a97">
+                            <h5>이진석</h5>
+                            <span>Meta Coach</span><br>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <a href="http://jangho.github.io/">
+                                <img alt="Team Member" class="background-image img-circle" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAUuAAAAJGRiNDk3YmUyLTNjY2MtNDQyYS04MjJkLTYzZmU4Y2EyM2Y5OQ.jpg">
+                                <h5>최장호</h5>
+                            </a>
+                            <span>Coach</span><br>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="{% static 'landingsite/images/team-small-4.png' %}">
+                            <h5>김신영</h5>
+                            <span>Coach</span><br>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/hyeonjung.JPG.160x160_q85_crop-smart.JPG ">
+                            <h5>이현정</h5>
+                            <span>Coach</span><br>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="team-1-member">
+                            <img alt="Team Member" class =" img-circle" src="https://djangogirls.org/uploads/event/coaches/moonseong.jpg.160x160_q85_crop-smart.jpg"></a>
+                            <h5>강문성</h5>
+                            <span>Coach</span>
+                            <ul class="social-icons">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2 col-sm-4 col-md-offset-1">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/rach.jpg.160x160_q85_crop-smart.jpg">
-                        <h5>Rachell Calhoun</h5>
-                        <span>Organizer</span><br>
-                        <ul class="social-icons">
+        </section>
+        <section class="expanding-list" id="curriculum">
+            <div class="background-image-holder parallax-background" style="opacity:0.2;">
+                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/help.jpg">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h1 class="text-center"><img src="{% static 'landingsite/images/program2kr.png' %}"></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3> Django Girls Workshop</h3>
+                        <h4>During each of our workshops, 30-60 women build their first web application using HTML, CSS, Python and Django using the <a href="http://tutorial.djangogirls.org/en/"><b>Django Girls Tutorial</b></a>.</h4>
+                        <hr>
+                        <h3>Code Camp I (Beginner)</h3>
+                        <h4>A 2-3 month code camp to dive into the basics that we were introduced to in the first workshop.</h4>
+                        <hr>
+                        <h3>Code Camp II(Advanced)</h3>
+                        <h4>A 2-3 month project based code camp where attendees will impliment the knowledge from the previous code camp to creat their personal project.</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-center">Code Camp I Curriculum</h3>
+                        <p>
+                        <ul class="expanding-ul curriculum">
                             <li>
-                                <a href="http://rachellcalhoun.com">
-                                <i class="icon icon_compass"></i>
-                                </a>
+                                <div class="title">
+                                    <i class="icon icon-pencil"></i>
+                                    <span><font color="#333333"><span>Python</span></font></span>
+                                </div>
+                                <div class="text-content">
+                                    <p>Strings</p>
+                                    <p>If Statements</p>
+                                    <p>Loops</p>
+                                    <p>Lists</p>
+                                    <p>Dictionaries</p>
+                                    <p>Classes</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title">
+                                    <i class="icon icon-global"></i>
+                                    <span><font color="#333333"><span>Django</span></font></span>
+                                </div>
+                                <div class="text-content">
+                                    <p>Model</p>
+                                    <p>Views</p>
+                                    <p>Urls</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title">
+                                    <i class="icon icon-layers"></i>
+                                    <span><font color="#333333"><span>SQL</span></font></span>
+                                </div>
+                                <div class="text-content">
+                                    <p>Schema</p>
+                                    <p>Database types</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title">
+                                    <i class="icon icon-documents"></i>
+                                    <span><font color="#333333"><span>Git &amp; Github</span></font></span>
+                                </div>
+                                <div class="text-content">
+                                    <p>How to use git</p>
+                                    <p>Using github for collaboration</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/dy_small.jpg.160x160_q85_crop-smart.jpg">
-                        <h5>박다영</h5>
-                        <span>Organizer</span><br>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/hassan.jpg.160x160_q85_crop-smart.jpg">
-                        <h5>Hassan Abid</h5>
-                        <span>Organizer and Coach</span><br>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="http://hassanabid.com">
-                                <i class="icon icon_compass"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/sujin.jpg.160x160_q85_crop-smart.jpg">
-                        <h5>이수진</h5>
-                        <span>Organizer</span><br>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="http://sujinlee.me">
-                                <i class="icon icon_compass"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/jin.jpg.160x160_q85_crop-smart.jpg ">
-                        <h5>Jin Park</h5>
-                        <span>Organizer and Coach</span><br>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="http://jinpark.net">
-                                <i class="icon icon_compass"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 col-sm-4 col-md-offset-1">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src=" https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/p160x160/12299306_989734917715180_8803150683617084057_n.jpg?oh=a4db211a5a0ae43ed9ca6c20b01cd420&oe=5720B0AD&__gda__=1457074705_38c37b56374c2bafbef17722bb677a97">
-                        <h5>이진석</h5>
-                        <span>Meta Coach</span><br>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <a href="http://jangho.github.io/">
-                            <img alt="Team Member" class="background-image img-circle" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAUuAAAAJGRiNDk3YmUyLTNjY2MtNDQyYS04MjJkLTYzZmU4Y2EyM2Y5OQ.jpg">
-                            <h5>최장호</h5>
-                        </a>
-                        <span>Coach</span><br>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="{% static 'landingsite/images/team-small-4.png' %}">
-                        <h5>김신영</h5>
-                        <span>Coach</span><br>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class="background-image img-circle" src="https://djangogirls.org/uploads/event/coaches/hyeonjung.JPG.160x160_q85_crop-smart.JPG ">
-                        <h5>이현정</h5>
-                        <span>Coach</span><br>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="team-1-member">
-                        <img alt="Team Member" class =" img-circle" src="https://djangogirls.org/uploads/event/coaches/moonseong.jpg.160x160_q85_crop-smart.jpg"></a>
-                        <h5>강문성</h5>
-                        <span>Coach</span>
-                        <ul class="social-icons">
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        </section>
+        <section class ="portfolios" id="portfolios">
+        <div class="container ">
+        <div class="row">
+        <div class="col-sm-12 text-center">
+        <h1>Code Camp II - Members' Final Projects</h1>
         </div>
-    </section>
-    <section class="expanding-list" id="curriculum">
-        <div class="background-image-holder parallax-background" style="opacity:0.2;">
-            <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/help.jpg">
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h1 class="text-center"><img src="{% static 'landingsite/images/program2kr.png' %}"></h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3> Django Girls Workshop</h3>
-                    <h4>During each of our workshops, 30-60 women build their first web application using HTML, CSS, Python and Django using the <a href="http://tutorial.djangogirls.org/en/"><b>Django Girls Tutorial</b></a>.</h4>
-                    <hr>
-                    <h3>Code Camp I (Beginner)</h3>
-                    <h4>A 2-3 month code camp to dive into the basics that we were introduced to in the first workshop.</h4>
-                    <hr>
-                    <h3>Code Camp II(Advanced)</h3>
-                    <h4>A 2-3 month project based code camp where attendees will impliment the knowledge from the previous code camp to creat their personal project.</h4>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="text-center">Code Camp I Curriculum</h3>
-                    <p>
-                    <ul class="expanding-ul curriculum">
-                        <li>
-                            <div class="title">
-                                <i class="icon icon-pencil"></i>
-                                <span><font color="#333333"><span>Python</span></font></span>
-                            </div>
-                            <div class="text-content">
-                                <p>Strings</p>
-                                <p>If Statements</p>
-                                <p>Loops</p>
-                                <p>Lists</p>
-                                <p>Dictionaries</p>
-                                <p>Classes</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="title">
-                                <i class="icon icon-global"></i>
-                                <span><font color="#333333"><span>Django</span></font></span>
-                            </div>
-                            <div class="text-content">
-                                <p>Model</p>
-                                <p>Views</p>
-                                <p>Urls</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="title">
-                                <i class="icon icon-layers"></i>
-                                <span><font color="#333333"><span>SQL</span></font></span>
-                            </div>
-                            <div class="text-content">
-                                <p>Schema</p>
-                                <p>Database types</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="title">
-                                <i class="icon icon-documents"></i>
-                                <span><font color="#333333"><span>Git &amp; Github</span></font></span>
-                            </div>
-                            <div class="text-content">
-                                <p>How to use git</p>
-                                <p>Using github for collaboration</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    </section>
-    <section class ="portfolios" id="portfolios">
-    <div class="container ">
-    <div class="row">
-    <div class="col-sm-12 text-center">
-    <h1>Code Camp II - Members' Final Projects</h1>
-    </div>
-    </div>
-    <div class="row studentport">
-    <div class="col-sm-4 ">
-    <a href="https://play.google.com/store/apps/details?id=com.soeun.runch">
-    <img src="{% static 'landingsite/images/soeun2.png' %}" alt="Runch" class ="img-thumbnail center-block">
-    <p class="text-center">So Eun Lee - Runch App</p>
-    </a>
-    </div>
-    <div class="col-sm-4">
-    <a href="http://www.asellachoi.com/">
-    <img src="{% static 'landingsite/images/asellaport1.png' %}" alt="Data Imaging Site" class ="img-thumbnail center-block">
-    <p class="text-center">Asella Choi - Portfolio</p>
-    </a>
-    </div>
-    <div class="col-sm-4 ">
-    <a href="https://hansangyoung.herokuapp.com/">
-    <img src="{% static 'landingsite/images/m.png' %}" alt="MinSeon Kim" class ="img-thumbnail center-block">
-    <p class="text-center">MinSeon Kim - Art Archive</p>
-    </a>
-    </div>
-    </div>
-    <div class="row studentport">
-    <div class="col-sm-4">
-    <a href="https://welibrary.pythonanywhere.com">
-    <img src="{% static 'landingsite/images/jiwon.png' %}" alt="django girls resources" class ="img-thumbnail center-block">
-    <p class="text-center">Jiwon Hwang - Resource Page</p>
-    </a>
-    </div>
-    <div class="col-sm-4">
-    <a href="https://anna2016.pythonanywhere.com">
-    <img src="{% static 'landingsite/images/jiwon_blog.png' %}" alt="Jiwon Hwang's blog" class ="img-thumbnail center-block">
-    <p class="text-center">Jiwon Hwang - Blog</p>
-    </a>
-    </div>
-    <div class="col-sm-4 ">
-    <a href="https://searchrestaurant.pythonanywhere.com">
-    <img src="{% static 'landingsite/images/hassanproj.png' %}" alt="Hassan's Search Restaurant" class ="img-thumbnail center-block">
-    <p class="text-center">Hassan Abid - Restaurant Search</p>
-    </a>
-    </div>
-    </div>
-    <div class="row studentport">
-    <div class="col-sm-4 ">
-    <a href="https://rachellcalhoun.pythonanywhere.com">
-    <img src="{% static 'landingsite/images/rachellport1.png' %}" alt="Rachell Calhoun's Portfolio" class ="img-thumbnail center-block">
-    <p class="text-center">Rachell Calhoun - Portfolio Site</p>
-    </a>
-    </div>
-    <div class="col-sm-4">
-    <a href="https://craftsnstuff.pythonanywhere.com">
-    <img src="{% static 'landingsite/images/landingpage.png' %}" alt="Rachell's Crafts Page" class ="img-thumbnail center-block">
-    <p class="text-center">Rachell Calhoun - CraftsNstuff</p>
-    </a>
-    </div>
-    <div class="col-sm-4 ">
-    <a href="https://fleecycloud215.pythonanywhere.com/">
-    <img src="{% static 'landingsite/images/jeewon.png' %}" alt="Jeewon Lee's Portfolio" class ="img-thumbnail center-block">
-    <p class="text-center">Jeewon Lee - Portfolio</p>
-    </a>
-    </div>
-    </div>
-    <div class="row studentport">
-    <div class="col-sm-4 ">
-    <a href="https://github.com/sujinleeme/official-website">
-    <img src="{% static 'landingsite/images/sujinlee-web.png' %}" alt="Rachell Calhoun's Portfolio" class ="img-thumbnail center-block">
-    <p class="text-center">Sujin Lee - Portfolio Site</p>
-    </a>
-    </div>
-    <!-- <div class="col-sm-4">
-        <a href="#">
-        		<img src="{% static 'landingsite/images/landingpage.png" alt="Student Name" class ="img-thumbnail center-block">
-        		<p class="text-center">Student Name</p>
+        <div class="row studentport">
+        <div class="col-sm-4 ">
+        <a href="https://play.google.com/store/apps/details?id=com.soeun.runch">
+        <img src="{% static 'landingsite/images/soeun2.png' %}" alt="Runch" class ="img-thumbnail center-block">
+        <p class="text-center">So Eun Lee - Runch App</p>
+        </a>
+        </div>
+        <div class="col-sm-4">
+        <a href="http://www.asellachoi.com/">
+        <img src="{% static 'landingsite/images/asellaport1.png' %}" alt="Data Imaging Site" class ="img-thumbnail center-block">
+        <p class="text-center">Asella Choi - Portfolio</p>
         </a>
         </div>
         <div class="col-sm-4 ">
-        <a href="#">
-        		<img src="{% static 'landingsite/images/jeewon.png" alt="Name" class ="img-thumbnail center-block">
-        		<p class="text-center">Student Name</p>
+        <a href="https://hansangyoung.herokuapp.com/">
+        <img src="{% static 'landingsite/images/m.png' %}" alt="MinSeon Kim" class ="img-thumbnail center-block">
+        <p class="text-center">MinSeon Kim - Art Archive</p>
         </a>
-        </div> -->
-    </div>
-    </div>
-    </section>
-    <section class="non-profits" id="non-profits">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-12 text-center">
-    <h1>Non-profit projects and collaborative work</h1>
-    <p>Our non-profit program gives our members an opportunity to gain experience collaborating on real projects and build their portfolio all while helping those in need.</p>
-    <p>Does your non-profit need some web help?<a href="mailto:seoul@djangogirls.org"> Contact us!</a></p>
-    </div>
-    </div>
-    <!-- <div class="row">
-        <div class="col-md-6">
-        		<div class="nonprofit center-block">
-                      			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
-                      			<div class="description">
-                         			<h3>Peru School</h3>
-                          		<p class="text-dark">Website link </p>
-                      			</div></a>
-                      		</div>
-                      	</div>
-                      	<div class="col-md-6">
-                      		<div class="nonprofit center-block">
-                      			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
-                      			<div class="description">
-                         				<h3>Peru School</h3>
-                          			<p class="text-dark">Website link </p>
-                      			</div></a>
-                      		</div>
-                      	</div> -->
-    </div>
-    </div>
-    </section>
-    <section class="instagram-feed">
+        </div>
+        </div>
+        <div class="row studentport">
+        <div class="col-sm-4">
+        <a href="https://welibrary.pythonanywhere.com">
+        <img src="{% static 'landingsite/images/jiwon.png' %}" alt="django girls resources" class ="img-thumbnail center-block">
+        <p class="text-center">Jiwon Hwang - Resource Page</p>
+        </a>
+        </div>
+        <div class="col-sm-4">
+        <a href="https://anna2016.pythonanywhere.com">
+        <img src="{% static 'landingsite/images/jiwon_blog.png' %}" alt="Jiwon Hwang's blog" class ="img-thumbnail center-block">
+        <p class="text-center">Jiwon Hwang - Blog</p>
+        </a>
+        </div>
+        <div class="col-sm-4 ">
+        <a href="https://searchrestaurant.pythonanywhere.com">
+        <img src="{% static 'landingsite/images/hassanproj.png' %}" alt="Hassan's Search Restaurant" class ="img-thumbnail center-block">
+        <p class="text-center">Hassan Abid - Restaurant Search</p>
+        </a>
+        </div>
+        </div>
+        <div class="row studentport">
+        <div class="col-sm-4 ">
+        <a href="https://rachellcalhoun.pythonanywhere.com">
+        <img src="{% static 'landingsite/images/rachellport1.png' %}" alt="Rachell Calhoun's Portfolio" class ="img-thumbnail center-block">
+        <p class="text-center">Rachell Calhoun - Portfolio Site</p>
+        </a>
+        </div>
+        <div class="col-sm-4">
+        <a href="https://craftsnstuff.pythonanywhere.com">
+        <img src="{% static 'landingsite/images/landingpage.png' %}" alt="Rachell's Crafts Page" class ="img-thumbnail center-block">
+        <p class="text-center">Rachell Calhoun - CraftsNstuff</p>
+        </a>
+        </div>
+        <div class="col-sm-4 ">
+        <a href="https://fleecycloud215.pythonanywhere.com/">
+        <img src="{% static 'landingsite/images/jeewon.png' %}" alt="Jeewon Lee's Portfolio" class ="img-thumbnail center-block">
+        <p class="text-center">Jeewon Lee - Portfolio</p>
+        </a>
+        </div>
+        </div>
+        <div class="row studentport">
+        <div class="col-sm-4 ">
+        <a href="https://github.com/sujinleeme/official-website">
+        <img src="{% static 'landingsite/images/sujinlee-web.png' %}" alt="Sujin's personal portfolio" class ="img-thumbnail center-block">
+        <p class="text-center">Sujin Lee - Portfolio Site</p>
+        </a>
+        </div>
+         <div class="col-sm-4 ">
+        <a href="http://shareshare.pythonanywhere.com/">
+        <img src="{% static 'landingsite/images/downy.jpeg' %}"  height="195" alt="ShareShare" class ="img-thumbnail center-block">
+        <p class="text-center">Daeun Song - ShareShare</p>
+        </a>
+        </div>
+         <div class="col-sm-4 ">
+        <a href="http://oliviaha.pythonanywhere.com/">
+        <img src="{% static 'landingsite/images/olivia.png' %}" alt="Olivia's blog" class ="img-thumbnail center-block">
+        <p class="text-center">Olivia Ha - Blog</p>
+        </a>
+        </div>
+        </div>
+        <div class="row studentport">
+            <div class="col-sm-4">
+                <a href="http://doilad.pythonanywhere.com/">
+                   <img src="{% static 'landingsite/images/miji.png' %}" alt="Mind Memo" class ="img-thumbnail center-block">
+                    <p class="text-center">Miji Seo - Mind Memo</p> 
+                </a>
+            </div>
+        </div>
+        </div>
+        </section>
+        <section class="non-profits" id="non-profits">
         <div class="container">
-            <div class="row text-center">
-                <div><span class="alt-font">Insta <i class="icon social_instagram"></i> Gram</span></div>
-            </div>
+        <div class="row">
+        <div class="col-md-12 text-center">
+        <h1>Non-profit projects and collaborative work</h1>
+        <p>Our non-profit program gives our members an opportunity to gain experience collaborating on real projects and build their portfolio all while helping those in need.</p>
+        <p>Does your non-profit need some web help?<a href="mailto:seoul@djangogirls.org"> Contact us!</a></p>
         </div>
-        <div class="instafeed" data-user-name="djangogirlsseoul">
-            <ul></ul>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-6">
+            		<div class="nonprofit center-block">
+                          			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
+                          			<div class="description">
+                             			<h3>Peru School</h3>
+                              		<p class="text-dark">Website link </p>
+                          			</div></a>
+                          		</div>
+                          	</div>
+                          	<div class="col-md-6">
+                          		<div class="nonprofit center-block">
+                          			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
+                          			<div class="description">
+                             				<h3>Peru School</h3>
+                              			<p class="text-dark">Website link </p>
+                          			</div></a>
+                          		</div>
+                          	</div> -->
+        </div>
+        </div>
+        </section>
+        <section class="instagram-feed">
+            <div class="container">
+                <div class="row text-center">
+                    <div><span class="alt-font">Insta <i class="icon social_instagram"></i> Gram</span></div>
+                </div>
+            </div>
+            <div class="instafeed" data-user-name="djangogirlsseoul">
+                <ul></ul>
+            </div>
+        </section>
+    </div>
+    <section class="sponsors" id="sponsors">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Thank you to our wonderful sponsors!</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <a href="http://maru180.com/pcindex.php"><img class ="sponsorimg img-responsive  center-block" src="{% static 'landingsite/images/about_maru.png' %}"></a>
+                </div>
+                <div class="col-md-6 ">
+                    <a href="http://dcamp.kr/"><img class ="sponsorimg img-responsive center-block" src="{% static 'landingsite/images/dcamp.png' %}"></a>
+                </div>
+            </div>
         </div>
     </section>
-</div>
-<section class="sponsors" id="sponsors">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>Thank you to our wonderful sponsors!</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 ">
-                <a href="http://maru180.com/pcindex.php"><img class ="sponsorimg img-responsive  center-block" src="{% static 'landingsite/images/about_maru.png' %}"></a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="http://dcamp.kr/"><img class ="sponsorimg img-responsive center-block" src="{% static 'landingsite/images/dcamp.png' %}"></a>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock %}
+    {% endblock %}
 
