@@ -16,6 +16,9 @@ class Reservation(models.Model):
     updatedAt =  models.DateTimeField(auto_now=True)
     createdAt =  models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-createdAt']
+
     def __str__(self):
         return "{}-{}".format(self.user.username, self.event.title)
 
@@ -29,6 +32,7 @@ class Event(models.Model):
     notes =  MarkdownField()
     updatedAt =  models.DateTimeField(auto_now=True)
     createdAt =  models.DateTimeField(auto_now_add=True)
+
 
     def end_time(self):
         return self.start_time + self.duration
