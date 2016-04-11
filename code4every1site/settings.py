@@ -171,8 +171,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_ADDRESS')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_SECRET_KEY')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+#Mailgun
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = 'key-34489217ff7af5e53c3684c5e7b9d54e'
+MAILGUN_SERVER_NAME = 'sandboxa09a714ace1c4794895c59b9bd4ae8f9.mailgun.org'

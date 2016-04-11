@@ -9,6 +9,7 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 
 from .models import Event, Reservation
+from django.core.mail import EmailMessage
 
 def events_list(request):
     events = Event.objects.all()
@@ -42,9 +43,18 @@ def event_signup(request, event_id):
         rsvp_single = rsvp.first()
         rsvp_single.attending = not rsvp_single.attending
         rsvp_single.save()
+        print(user.email)
+        email = EmailMessage('Hi!', 'Cool message for %recipient.first_name%', 'seoul@djangogirls.org', [user.email])
+        email.extra_headers['recipient_variables'] = '{'+ str(user.email) +':{"first_name":'+ str(user.first_name) + '}}'
+        print(user.first_name)
+        email.send()
+        print ("sent_email")
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
+        mail = EmailMessage('Hi!', 'Cool message for %recipient.first_name%', 'seoul@djangogirls.org', [user.email])
+        email.extra_headers['recipient_variables'] = '{'+ str(user.email) +':{"first_name":user.first_name}}'
+        email.send()
         rsvp = [rsvp]
     rsvp_json = serializers.serialize('json', rsvp)
     return HttpResponse(rsvp_json, content_type='application/json')
@@ -54,3 +64,4 @@ def user_rsvplist(request):
     print(len(rsvps))
     context = {'rsvps': rsvps}
     return render(request,'rsvp/user_rsvp.html', context)
+
