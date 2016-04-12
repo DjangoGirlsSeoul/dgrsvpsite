@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Event, Reservation
 from django.core.mail import EmailMessage
+import json
 
 def events_list(request):
     events = Event.objects.all()
@@ -38,22 +39,30 @@ def event_signup(request, event_id):
         raise PermissionDenied
     event = get_object_or_404(Event, id=event_id)
     rsvp = Reservation.objects.filter(event=event, user=user)
-    print("event_signup",len(rsvp))
+    emails = []
+    variables = {}
+    nameDict = {}
+    emails.append(user.email)
+    nameDict["first_name"] = user.first_name
+    variables[user.email] = nameDict
+    variables = json.dumps(variables)
+    print(variables)
     if rsvp:
         rsvp_single = rsvp.first()
         rsvp_single.attending = not rsvp_single.attending
         rsvp_single.save()
-        print(user.email)
-        email = EmailMessage('Hi!', 'Cool message for %recipient.first_name%', 'seoul@djangogirls.org', [user.email])
-        email.extra_headers['recipient_variables'] = '{'+ str(user.email) +':{"first_name":'+ str(user.first_name) + '}}'
-        print(user.first_name)
+        if not rsvp_single.attending :
+            email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+        else :
+            email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have rsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+        email.extra_headers['recipient_variables'] = variables
         email.send()
         print ("sent_email")
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
-        mail = EmailMessage('Hi!', 'Cool message for %recipient.first_name%', 'seoul@djangogirls.org', [user.email])
-        email.extra_headers['recipient_variables'] = '{'+ str(user.email) +':{"first_name":user.first_name}}'
+        email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have rsvped for the event: ' + str(rsvp.event.title), 'seoul@djangogirls.org', emails)
+        email.extra_headers['recipient_variables'] = variables
         email.send()
         rsvp = [rsvp]
     rsvp_json = serializers.serialize('json', rsvp)
@@ -64,4 +73,3 @@ def user_rsvplist(request):
     print(len(rsvps))
     context = {'rsvps': rsvps}
     return render(request,'rsvp/user_rsvp.html', context)
-
