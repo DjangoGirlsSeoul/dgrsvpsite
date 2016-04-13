@@ -142,22 +142,10 @@ if DEBUG:
     }
 else:
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'djangogirlsseoul$default',
-            'USER': 'djangogirlsseoul',
-            'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-            'HOST': 'djangogirlsseoul.mysql.pythonanywhere-services.com',
-        },
-        'test': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'djangogirlsseoul$test_djangogirlsseoul',
-            'USER': 'djangogirlsseoul',
-            'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-            'HOST': 'djangogirlsseoul.mysql.pythonanywhere-services.com',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
