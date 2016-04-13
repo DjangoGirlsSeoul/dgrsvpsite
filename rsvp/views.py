@@ -9,8 +9,12 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 
 from .models import Event, Reservation
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage,EmailMultiAlternatives
 import json
+from django.template import Context
+from django.template.loader import render_to_string, get_template
+
+EVENT_BASE_URL = "http://www.djangogirlsseoul.org/rsvp/"
 
 def events_list(request):
     events = Event.objects.all()
@@ -42,6 +46,8 @@ def event_signup(request, event_id):
     emails = []
     variables = {}
     nameDict = {}
+    context = {}
+    context["name"] = user.first_name
     emails.append(user.email)
     nameDict["first_name"] = user.first_name
     variables[user.email] = nameDict
@@ -51,18 +57,29 @@ def event_signup(request, event_id):
         rsvp_single = rsvp.first()
         rsvp_single.attending = not rsvp_single.attending
         rsvp_single.save()
-        if not rsvp_single.attending :
-            email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+        context["event_title"] = rsvp_single.event.title
+        context["event_location"] = rsvp_single.event.location
+        context["event_datetime"] = rsvp_single.event.start_time
+        context["event_url"] = EVENT_BASE_URL + str(rsvp_single.event.slug) + '/'
+        message = get_template('rsvp/email_template.html').render(Context(context))
+        if rsvp_single.attending :
+            email = EmailMultiAlternatives('Weekly Study Meetup : ' + str(rsvp_single.event.title), '' , 'seoul@djangogirls.org', emails)
+            email.attach_alternative(message, "text/html")
         else :
-            email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have rsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+            email = EmailMessage('Weekly Study Meetup : ' + str(rsvp_single.event.title), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
         email.extra_headers['recipient_variables'] = variables
         email.send()
         print ("sent_email")
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
-        email = EmailMessage('RSVP Status', 'Hi %recipient.first_name%,\n\nyou have rsvped for the event: ' + str(rsvp.event.title), 'seoul@djangogirls.org', emails)
-        email.extra_headers['recipient_variables'] = variables
+        context["event_title"] = rsvp.event.title
+        context["event_location"] = rsvp.event.location
+        context["event_datetime"] = rsvp.event.start_time
+        context["event_url"] = EVENT_BASE_URL + str(rsvp.event.slug) + '/'
+        message = get_template('rsvp/email_template.html').render(Context(context))
+        email = EmailMultiAlternatives('Weekly Study Meetup : ' + str(rsvp.event.title), '', 'seoul@djangogirls.org', emails)
+        email.attach_alternative(message, "text/html")
         email.send()
         rsvp = [rsvp]
     rsvp_json = serializers.serialize('json', rsvp)
