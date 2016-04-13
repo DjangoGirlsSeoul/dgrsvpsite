@@ -63,10 +63,10 @@ def event_signup(request, event_id):
         context["event_url"] = EVENT_BASE_URL + str(rsvp_single.event.slug) + '/'
         message = get_template('rsvp/email_template.html').render(Context(context))
         if rsvp_single.attending :
-            email = EmailMultiAlternatives('Weekly Study Meetup : ' + str(rsvp_single.event.title), '' , 'seoul@djangogirls.org', emails)
+            email = EmailMultiAlternatives('Weekly Study Meetup - ' + str(rsvp_single.event.title), '' , 'seoul@djangogirls.org', emails)
             email.attach_alternative(message, "text/html")
         else :
-            email = EmailMessage('Weekly Study Meetup : ' + str(rsvp_single.event.title), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+            email = EmailMessage('Weekly Study Meetup - ' + str(rsvp_single.event.title), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
         email.extra_headers['recipient_variables'] = variables
         email.send()
         print ("sent_email")
@@ -78,7 +78,7 @@ def event_signup(request, event_id):
         context["event_datetime"] = rsvp.event.start_time
         context["event_url"] = EVENT_BASE_URL + str(rsvp.event.slug) + '/'
         message = get_template('rsvp/email_template.html').render(Context(context))
-        email = EmailMultiAlternatives('Weekly Study Meetup : ' + str(rsvp.event.title), '', 'seoul@djangogirls.org', emails)
+        email = EmailMultiAlternatives('Weekly Study Meetup - ' + str(rsvp.event.title), '', 'seoul@djangogirls.org', emails)
         email.attach_alternative(message, "text/html")
         email.send()
         rsvp = [rsvp]
