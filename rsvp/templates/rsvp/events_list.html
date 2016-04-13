@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'rsvp/lib/fullcalendar.min.css'%}">
 {% endblock css %}
 {% block content %}
+<div class="main-container">
 <div class="text-center titlebackground" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'landingsite/images/hack.jpg' %})
     center 30% no-repeat;height:400px; ">
     <div class="row titlerow">
@@ -30,6 +31,7 @@
     <div class="android-card-container mdl-grid" id="posts">
         <div id='calendar'></div>
     </div>
+</div>
 </div>
 {% endblock content %}
 {% block endjs %}
@@ -60,4 +62,3 @@
     });
 </script>
 {% endblock endjs %}
-
