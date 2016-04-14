@@ -14,7 +14,9 @@ import json
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 
-EVENT_BASE_URL = "http://www.djangogirlsseoul.org/rsvp/"
+EVENT_BASE_URL = "http://www.djangogirlsseoul.org/rsvp/{}/"
+FROM_EMAIL = "seoul+events@djangogirls.org"
+EMAIL_SUBJECT = "Weekly Study Meetup - {}"
 
 def events_list(request):
     events = Event.objects.all()
@@ -29,7 +31,6 @@ def event_detail(request, slug):
     if request.user.is_authenticated():
         rsvp = Reservation.objects.filter(event=event, user=request.user)
         rsvplist = Reservation.objects.filter(event=event, attending=True)
-        print("total rsvp:",len(rsvplist))
     number_attending = Reservation.objects.filter(event=event, attending=True).count()
 
     context = {'event': event, 'rsvp': rsvp, 'number_attending': number_attending, 'spaces_left': event.capacity - number_attending, 'rsvplist': rsvplist}
@@ -52,7 +53,6 @@ def event_signup(request, event_id):
     nameDict["first_name"] = user.first_name
     variables[user.email] = nameDict
     variables = json.dumps(variables)
-    print(variables)
     if rsvp:
         rsvp_single = rsvp.first()
         rsvp_single.attending = not rsvp_single.attending
@@ -60,25 +60,24 @@ def event_signup(request, event_id):
         context["event_title"] = rsvp_single.event.title
         context["event_location"] = rsvp_single.event.location
         context["event_datetime"] = rsvp_single.event.start_time
-        context["event_url"] = EVENT_BASE_URL + str(rsvp_single.event.slug) + '/'
+        context["event_url"] = EVENT_BASE_URL.format(str(rsvp_single.event.slug))
         message = get_template('rsvp/email_template.html').render(Context(context))
         if rsvp_single.attending :
-            email = EmailMultiAlternatives('Weekly Study Meetup - ' + str(rsvp_single.event.title), '' , 'seoul@djangogirls.org', emails)
+            email = EmailMultiAlternatives(EMAIL_SUBJECT.format(str(rsvp_single.event.title)), '' , FROM_EMAIL, emails)
             email.attach_alternative(message, "text/html")
         else :
-            email = EmailMessage('Weekly Study Meetup - ' + str(rsvp_single.event.title), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), 'seoul@djangogirls.org', emails)
+            email = EmailMessage(EMAIL_SUBJECT.format(str(rsvp_single.event.title)), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), FROM_EMAIL, emails)
         email.extra_headers['recipient_variables'] = variables
         email.send()
-        print ("sent_email")
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
         context["event_title"] = rsvp.event.title
         context["event_location"] = rsvp.event.location
         context["event_datetime"] = rsvp.event.start_time
-        context["event_url"] = EVENT_BASE_URL + str(rsvp.event.slug) + '/'
+        context["event_url"] = EVENT_BASE_URL.format(str(rsvp.event.slug))
         message = get_template('rsvp/email_template.html').render(Context(context))
-        email = EmailMultiAlternatives('Weekly Study Meetup - ' + str(rsvp.event.title), '', 'seoul@djangogirls.org', emails)
+        email = EmailMultiAlternatives(EMAIL_SUBJECT.format(str(rsvp.event.title)), '', FROM_EMAIL, emails)
         email.attach_alternative(message, "text/html")
         email.send()
         rsvp = [rsvp]
@@ -87,6 +86,5 @@ def event_signup(request, event_id):
 
 def user_rsvplist(request):
     rsvps = Reservation.objects.filter(user=request.user)
-    print(len(rsvps))
     context = {'rsvps': rsvps}
     return render(request,'rsvp/user_rsvp.html', context)
