@@ -25,7 +25,7 @@ DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['djangogirlsseoul.pythonanywhere.com']
+    ALLOWED_HOSTS = ['djangogirlsseoul.pythonanywhere.com','djangogirlsseoul.org']
 
 # Application definition
 
@@ -159,8 +159,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_ADDRESS')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_SECRET_KEY')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+#Mailgun
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+
+if DEBUG:
+    MAILGUN_ACCESS_KEY = 'ACCESS_KEY'
+    MAILGUN_SERVER_NAME = 'sandboxa09a714ace1c4794895c59b9bd4ae8f9.mailgun.org'
+else :
+    MAILGUN_ACCESS_KEY = os.getenv('ACCESS_KEY')
+    MAILGUN_SERVER_NAME = os.getenv('SERVER_NAME')
