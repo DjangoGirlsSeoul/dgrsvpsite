@@ -68,7 +68,10 @@ def event_signup(request, event_id):
         else :
             email = EmailMessage(EMAIL_SUBJECT.format(str(rsvp_single.event.title)), 'Hi %recipient.first_name%,\n\nyou have unrsvped for the event: ' + str(rsvp_single.event.title), FROM_EMAIL, emails)
         email.extra_headers['recipient_variables'] = variables
-        email.send()
+        try:
+            email.send()
+        except :
+            print("email failed")
     else:
         rsvp = Reservation(event=event, user=user, attending=True)
         rsvp.save()
@@ -79,7 +82,10 @@ def event_signup(request, event_id):
         message = get_template('rsvp/email_template.html').render(Context(context))
         email = EmailMultiAlternatives(EMAIL_SUBJECT.format(str(rsvp.event.title)), '', FROM_EMAIL, emails)
         email.attach_alternative(message, "text/html")
-        email.send()
+        try:
+            email.send()
+        except:
+            print("email failed")
         rsvp = [rsvp]
     rsvp_json = serializers.serialize('json', rsvp)
     return HttpResponse(rsvp_json, content_type='application/json')
