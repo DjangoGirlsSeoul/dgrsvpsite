@@ -15,7 +15,7 @@ from django.conf import settings
 
 WEBHOOK_URL = settings.WEBHOOK_URL
 payload ={}
-EVENT_TEXT = "A new event(스터디 모임) has been added for {}일 {} - {}. *Rsvp* <{}|{}>. {}"
+EVENT_TEXT = "A new *event(스터디 모임)* has been added for {} {}일 - {}.\n*Rsvp* here <{}|{}>.\n{}"
 EVENT_BASE_URL = "http://www.djangogirlsseoul.org/rsvp/{}/"
 WEEKDAY_KO_ARRAY = {'Monday':'월','Tuesday':'화','Wednesday':'수','Thursday':'목','Friday':'금','Saturday':'토','Sunday':'일'}
 
