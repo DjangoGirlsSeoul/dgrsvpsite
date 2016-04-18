@@ -25,7 +25,7 @@ DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['djangogirlsseoul.pythonanywhere.com','djangogirlsseoul.org']
+    ALLOWED_HOSTS = ['djangogirlsseoul.pythonanywhere.com','djangogirlsseoul.org','www.djangogirlsseoul.org']
 
 # Application definition
 
