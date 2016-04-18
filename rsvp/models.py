@@ -15,7 +15,7 @@ from django.conf import settings
 
 WEBHOOK_URL = settings.WEBHOOK_URL
 payload ={}
-EVENT_TEXT = "A new *event(스터디 모임)* has been added for {} {}일 - {}.\n*Rsvp* here <{}|{}>.\n{}"
+EVENT_TEXT = "A new *event(스터디 밋업)* has been added for {} {}일 - {}.\n*Rsvp* here <{}|{}>.\n{}"
 EVENT_BASE_URL = "http://www.djangogirlsseoul.org/rsvp/{}/"
 WEEKDAY_KO_ARRAY = {'Monday':'월','Tuesday':'화','Wednesday':'수','Thursday':'목','Friday':'금','Saturday':'토','Sunday':'일'}
 
@@ -54,7 +54,6 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
-            # s = utc_to_local(self.start_time)
             s = self.start_time
             weekday_ko = WEEKDAY_KO_ARRAY[s.strftime('%A')]
             event_start_time = s.strftime('%H:%M')
@@ -67,9 +66,6 @@ class Event(models.Model):
                 payload["channel"] = "#weekend-studygroup"
             r  = requests.post(WEBHOOK_URL, data = json.dumps(payload))
         return super(Event, self).save(*args, **kwargs)
-
-def utc_to_local(utc_dt):
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
 
 def get_weather(city,forecastDate):
     baseurl = 'https://query.yahooapis.com/v1/public/yql'
