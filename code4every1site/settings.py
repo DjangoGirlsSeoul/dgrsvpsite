@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'accounts',
     'django.contrib.flatpages',
     'rsvp',
+    'resources',
 )
 
 MIDDLEWARE_CLASSES = (
