@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+        center 30% no-repeat;height:400px;">
+          <div class="android-font android-slogan">Resources</div>
+          <div class="android-font android-sub-slogan"></div>
+
+          <a href="#posts">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        <div class="android-more-section">
+          <div class="android-section-title mdl-typography--display-1-color-contrast">Check them out</div>
+          <div class="android-card-container mdl-grid" id="posts">
+            {% if resources %}
+              {% for resource in resources %}
+              <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                <div class="mdl-card__title">
+                   <h4 class="mdl-card__title-text">{{ resource.title }}</h4>
+                </div>
+                <div class="mdl-card__actions  mdl-card--border">
+                   <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ resource.link }}">
+                     Link
+                   </a>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+            <h2>No resources available</h2>
+            {% endif %}
+
+          </div>
+        </div>
+
+{% endblock content %}

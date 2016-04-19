@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^ms-open-camp-registration/$',TemplateView.as_view(template_name="landingsite/ms-open-camp-registration.html")),
     # url(r'^about-us/', include('django.contrib.flatpages.urls')),
     url(r'^', include('landingsite.urls', namespace="landingsite")),
+    url(r'^resources/', include('resources.urls', namespace="resources")),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

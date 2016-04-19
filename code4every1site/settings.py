@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'accounts',
     'django.contrib.flatpages',
     'rsvp',
+    'resources',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -166,7 +167,9 @@ if DEBUG:
     MAILGUN_ACCESS_KEY = 'ACCESS_KEY'
     MAILGUN_SERVER_NAME = 'sandboxa09a714ace1c4794895c59b9bd4ae8f9.mailgun.org'
     WEBHOOK_URL = ''
+    WEBHOOK_TOKEN = ''
 else :
     MAILGUN_ACCESS_KEY = os.getenv('ACCESS_KEY')
     MAILGUN_SERVER_NAME = os.getenv('SERVER_NAME')
     WEBHOOK_URL = os.getenv('WEBHOOK_URL')
+    WEBHOOK_TOKEN = os.getenv('WEBHOOK_TOKEN')
