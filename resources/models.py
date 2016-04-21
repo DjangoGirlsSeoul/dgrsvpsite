@@ -26,7 +26,7 @@ class Resource(models.Model):
     link = models.URLField()
     description = models.TextField(default='')
     slug = models.SlugField(max_length=100, unique=True)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, blank=True, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

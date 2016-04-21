@@ -1,3 +1,7 @@
+import re
+import requests
+import bs4
+
 from django.shortcuts import get_object_or_404,render
 from django.http import HttpResponse,Http404,JsonResponse
 from django.template import RequestContext, loader
@@ -6,6 +10,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist,MultipleObjectsReturned
 
+URL_REGEX = r"""((?<=[^a-zA-Z0-9])(?:https?\:\/\/|[a-zA-Z0-9]{1,}\.{1}|\b)(?:\w{1,}\.{1}){1,5}(?:com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil|iq|io|ac|ly|sm){1}(?:\/[a-zA-Z0-9]{1,})*)"""
 def index(request):
     resources = Resource.objects.order_by('-createdAt')
     context = {'resources': resources }
@@ -14,42 +19,38 @@ def index(request):
 @csrf_exempt
 def add_resource(request):
     if request.method == 'POST':
-        responseJson = {}
+        response_json = {}
         token = request.POST['token']
         channel_name = request.POST['channel_name']
-        trigger_word = request.POST['trigger_word']
-        if token == settings.WEBHOOK_TOKEN and channel_name == "learning-resources" and trigger_word == "resource":
-            user_name = request.POST['user_name']
-            timestamp = request.POST['timestamp']
-            text = request.POST['text']
-            print(user_name,text,trigger_word)
-            result = saveResource(text)
-            responseJson["text"] = result.format(user_name)
-            response = JsonResponse(responseJson)
-            return response
+        user_name = request.POST['user_name']
+        timestamp = request.POST['timestamp']
+        text = request.POST['text']
+        title = ''
+        if token == settings.WEBHOOK_TOKEN:
+            url_match = re.findall(URL_REGEX, text)
+            if url_match:
+                url = url_match[0]
+                try:
+                    r = requests.get(url, timeout=1)
+                    html = bs4.BeautifulSoup(r.text, "html.parser")
+                    title = html.title.text
+                except:
+                    e = sys.exc_info()[0]
+                    print("Exception when getting url for slack resource, {}".format(e))
+                finally:
+                    response_json["text"] = saveResource(user_name, url, title)
+                    response = JsonResponse(response_json)
+                    return response
+            else:
+                print("no url")
         else :
             print("token does not match")
 
-def saveResource(text):
-    textArray = text.split()
-    #ref: ['resource', '-title:', 'visualgo', 'category:', 'algorithm', 'link:', 'http://visualgo.net/']
-    if len(textArray) >= 7 and "http" in textArray[6]:
-        link = textArray[6]
-        print(link)
-        category = textArray[4].lower()
-        try:
-            cat = Category.objects.get(title=category)
-            print("cat :",cat)
-        except ObjectDoesNotExist:
-            cat = Category(title=category)
-            cat.save()
-        try:
-            resource = Resource.objects.get(link=link)
-            return "Resource saved already @{}"
-        except ObjectDoesNotExist:
-            resource = Resource(title=textArray[2],link=link,category=cat)
-            resource.save()
-            return "Resource successfully saved @{}"
-
-    else :
-        return "This resource is not properly formatted @{}"
+def saveResource(user_name, link, title):
+    try:
+        resource = Resource.objects.get(link=link)
+        return "Saved already @{}".format(user_name)
+    except ObjectDoesNotExist:
+        resource = Resource(title=title,link=link)
+        resource.save()
+        return "Successfully saved @{}".format(user_name)
