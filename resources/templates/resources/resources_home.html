@@ -2,12 +2,19 @@
 {% load staticfiles %}
 
 {% block content %}
-
-        <a name="top"></a>
-        <div class="android-be-together-section mdl-typography--text-center" style="background: url({% static 'landingsite/images/hack.jpg' %})
+<div class="main-container">
+<div class="text-center titlebackground"  style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({% static 'landingsite/images/hack.jpg' %})
         center 30% no-repeat;height:400px;">
-          <div class="android-font android-slogan">Resources</div>
-          <div class="android-font android-sub-slogan"></div>
+    <div class="row titlerow">
+        <div class="col-md-12 text-center">
+            <span class="text-white alt-font"> </span>
+            <h1 class="bigfont text-white"><strong>Resources</strong></h1>
+             <h1 class="text-white">Know another resource? Share it with us on slack!</h1>
+        <!-- <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({% static 'landingsite/images/hack.jpg' %})
+        center 30% no-repeat;height:400px;">
+          <div class="android-font android-slogan bigfont">Resources</div>
+          <div class="android-font android-sub-slogan"></div> -->
 
           <a href="#posts">
             <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
@@ -15,6 +22,9 @@
             </button>
           </a>
         </div>
+    </div>
+    </div>
+
         <div class="android-more-section">
           <div class="android-section-title mdl-typography--display-1-color-contrast">Check them out</div>
           <div class="android-card-container mdl-grid" id="posts">
@@ -37,5 +47,5 @@
 
           </div>
         </div>
-
+</div>
 {% endblock content %}
