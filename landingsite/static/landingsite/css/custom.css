@@ -68,3 +68,18 @@ footer h3{
  text-decoration: underline;
 
 }
+.bigfont {
+    font-size: 50px;
+    line-height: 55px;
+}
+.titlerow {
+  padding-top: 200px;
+}
+.titlebackground {
+   display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+  background-position: center top;
+  height: 400px;
+  /*color: white;*/
+}
