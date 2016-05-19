@@ -16,8 +16,12 @@
     <div class="mdl-grid login">
       <div class="mdl-cell mdl-cell--4-col"></div>
       <div class="mdl-cell mdl-cell--4-col">
-        {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        {% if form.non_field_errors %}
+            <ul>
+            {% for error in form.non_field_errors %}
+                <li class="text-center mdl-color-text--pink" >{{ error|escape }}</li>
+            {% endfor %}
+            </ul>
         {% endif %}
         <form method="post" action="{% url 'accounts:login' %}">
             {% csrf_token %}
