@@ -153,6 +153,13 @@
         <!--nav container -->
         {% block canonical_link %}{% endblock canonical_link %}
         {% block fb_tags %}{% endblock fb_tags %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         {% block content %}
         {% endblock content%}
         <div class="footer-container text-center">
