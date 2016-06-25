@@ -23,9 +23,9 @@ class CustomUserAdmin(UserAdmin):
             try:
                 email.send()
             except Exception as e:
-                self.message_user(request, "email failed - {}".format(e))
+                self.message_user(request, "email failed for {} - {}".format(user.username, e))
 
-    approve_and_email.short_description = "Approves and Emails User"
+    approve_and_email.short_description = "Approve and Email User(s)"
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
