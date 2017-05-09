@@ -171,7 +171,7 @@
         </section>
         <section class="expanding-list" id="curriculum">
             <div class="background-image-holder parallax-background" style="opacity:0.2;">
-                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/help.jpg">
+                <img class="background-image" alt="Background Image" src="{% static 'landingsite/images/help.jpg' %}">
             </div>
             <div class="container">
                 <div class="row">
@@ -349,26 +349,27 @@
         <p>Does your non-profit need some web help?<a href="mailto:seoul@djangogirls.org"> Contact us!</a></p>
         </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-md-6">
-            		<div class="nonprofit center-block">
-                          			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
-                          			<div class="description">
-                             			<h3>Peru School</h3>
-                              		<p class="text-dark">Website link </p>
-                          			</div></a>
-                          		</div>
-                          	</div>
-                          	<div class="col-md-6">
-                          		<div class="nonprofit center-block">
-                          			<a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
-                          			<div class="description">
-                             				<h3>Peru School</h3>
-                              			<p class="text-dark">Website link </p>
-                          			</div></a>
-                          		</div>
-                          	</div> -->
+        {% comment %}
+        <div class="row">
+        <div class="col-md-6">
+            <div class="nonprofit center-block">
+                <a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
+                <div class="description">
+                    <h3>Peru School</h3>
+                <p class="text-dark">Website link </p>
+                </div></a>
+            </div>
         </div>
+        <div class="col-md-6">
+            <div class="nonprofit center-block">
+                <a href=""><img alt="non profit project" class="img-responsive thumbnail center-block" src="http://placekitten.com/450/450">
+                <div class="description">
+                        <h3>Peru School</h3>
+                    <p class="text-dark">Website link </p>
+                </div></a>
+            </div>
+        </div>
+        {% endcomment %}
         </div>
         </section>
         <section class="instagram-feed">
@@ -402,4 +403,4 @@
             </div>
         </div>
     </section>
-    {% endblock %}
+{% endblock %}
